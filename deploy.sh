@@ -41,5 +41,5 @@ else
 fi
 fi
 
-docker run --name m07uf1projecte -p 8080:80 --restart unless-stopped -v project:/var/www/html -d php:7.4-apache-bullseye > /dev/null 2>&1 && echo "[OK] S'ha desplegat el contenidor" || echo "[ERROR] No s'ha pogut crear el contenidor"
+docker run --name m07uf1projecte -p 8080:80 --restart unless-stopped -v ${PWD}/project:/var/www/html -d php:7.4-apache-bullseye > /dev/null 2>&1 && echo "[OK] S'ha desplegat el contenidor" || echo "[ERROR] No s'ha pogut crear el contenidor"
 
