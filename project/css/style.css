@@ -12,6 +12,25 @@ body#index{
   background-size: cover;
 }
 
+a{
+  text-decoration: none;
+  color: black;
+}
+
+a:hover{
+  color: #1976d2;
+}
+.elimina:hover{
+  color: #d32f2f;
+}
+.afegir:hover{
+  color: #388e3c;
+}
+.modificar:hover{
+  color: #fbc02d;
+}
+
+/*Login Form*/
 
 .wrapper {
     width: 380px;
@@ -101,7 +120,6 @@ body#index{
     color: #fff;
     border: none;
     padding-left: 0;
-    margin-top: -10px;
     font-size: 20px;
     font-weight: 500;
     cursor: pointer;
@@ -111,15 +129,44 @@ body#index{
   form .field input[type="submit"]:active {
     transform: scale(0.8);
   }
-  form .signup-link {
-    color: #262626;
-    margin-top: 20px;
-    text-align: center;
+
+
+
+  /*Flex Icons*/
+  .options-flex {
+    display: flex;
+    flex-wrap: wrap;
+    /*flex-direction: row-reverse;*/
+    width: auto;
+    height: auto;
+    align-items: center;
+    justify-content: center;
   }
-  form .signup-link a {
-    color: #1976d2;
-    text-decoration: none;
+  .option-title {
+    display: flex;
+    flex-wrap: wrap;
+    /*flex-direction: row-reverse;*/
+    width: auto;
+    height: auto;
+    font-size: 28px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
   }
-  form .signup-link a:hover {
-    text-decoration: underline;
+  .option {
+      width: 250px;
+      height: 250px;
+      text-align: center;
+      margin: 5px;
+  }
+
+  .option-icon {
+      padding: 10px 10px 10px 10px;
+      font-size: 125px;
+      align-items: center;
+  }
+
+  .option-p {
+      font-size: 18px;
+      color: black;
   }
