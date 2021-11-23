@@ -6,6 +6,13 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
+body#index{
+  background-image: url('https://wallpaperaccess.com/full/253322.jpg');
+  background-size: cover;
+}
+
+
 .wrapper {
     width: 380px;
     background: #fff;
