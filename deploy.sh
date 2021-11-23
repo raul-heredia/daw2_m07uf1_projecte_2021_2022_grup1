@@ -25,7 +25,8 @@ fi
 if [[ ${DOCKER} -eq 1  || ${COMPOSE} -eq 1 ]];
 then
 echo "Instalant Docker i Docker-compose"
-apt-get update && apt-get install docker.io docker-compose -y > /dev/null 2>&1
+apt-get update > /dev/null 2>&1
+apt-get install docker-ce docker-ce-cli containerd.io -y > /dev/null 2>&1
 if [[ $? -eq 0 ]];
 then
     echo "[OK] Docker Instalat"
