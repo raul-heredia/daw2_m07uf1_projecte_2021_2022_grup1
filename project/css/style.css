@@ -10,14 +10,60 @@
 body#index{
   background-image: url('https://wallpaperaccess.com/full/253322.jpg');
   background-size: cover;
+  
 }
 
-a{
+main{
+  padding-top: 50px;
+}
+
+nav{
+  position: fixed;
+  width: 100%;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+nav li {
+  float: right;
+}
+
+nav ul li i {
+  font-size: 15px;
+}
+nav ul li a.disabled i  {
+  margin-right: 5px;
+}
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  margin: 5px;
+  padding: 8px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  color: #1976d2;
+}
+
+nav li a.disabled{
+  pointer-events: none;
+  cursor: default;
+}
+/*Main*/
+main a{
   text-decoration: none;
   color: black;
 }
 
-a:hover{
+main a:hover{
   color: #1976d2;
 }
 .elimina:hover{
@@ -33,41 +79,41 @@ a:hover{
 /*Login Form*/
 
 .wrapper {
-    width: 380px;
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
-    margin: auto;
-    margin-top: 50px;
+  width: 380px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  margin-top: 50px;
   }
   .wrapper .title {
-    font-size: 35px;
-    font-weight: 600;
-    text-align: center;
-    line-height: 100px;
-    color: #fff;
-    user-select: none;
-    border-radius: 15px 15px 0 0;
-    background: #1976d2;
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 100px;
+  color: #fff;
+  user-select: none;
+  border-radius: 15px 15px 0 0;
+  background: #1976d2;
   }
   .wrapper form {
-    padding: 10px 30px 50px 30px;
+  padding: 10px 30px 50px 30px;
   }
   .wrapper form .field {
-    height: 50px;
-    width: 100%;
-    margin-top: 20px;
-    position: relative;
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
   }
   .wrapper form .field input {
-    height: 100%;
-    width: 100%;
-    outline: none;
-    font-size: 17px;
-    padding-left: 20px;
-    border: 1px solid lightgrey;
-    border-radius: 25px;
-    transition: all 0.3s ease;
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  padding-left: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  transition: all 0.3s ease;
   }
   .wrapper form .field input:focus,
   form .field input:valid {

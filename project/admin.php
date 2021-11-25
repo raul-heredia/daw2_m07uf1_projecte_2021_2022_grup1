@@ -1,3 +1,15 @@
+<?php 
+$USER = "m1000";
+$NOMCOMPLET = "Moritz Neuer";
+
+function enrere(){
+    if (isset($_SERVER["HTTP_REFERER"])) {
+        header("Location: " . $_SERVER["HTTP_REFERER"]);
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,14 +18,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css" />
-    <title>Document</title>
+    <title>Panell D'administrador</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
 <body>
+    <nav>
+    <ul>
+        <li><a href=""><i class="fas fa-power-off"></i></a></li>
+        <li><a class="disabled"><i class="fas fa-user"></i><?php echo $USER?></a></li>
+        <li><a href="<?php enrere()?>">Enrere</a></li>
+    </ul>
+    </nav>
     <main>
-        <h1>Benvingut $client</h1>
+        <h1>Benvingut <?php echo $NOMCOMPLET?></h1>
         <h1 class="option-title">Bibliotecaris</h1>
         <div class="options-flex">
             <div class="option">
