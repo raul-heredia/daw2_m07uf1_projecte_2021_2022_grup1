@@ -1,0 +1,3 @@
+username,passwd,isAdmin,nom,cognom1,cognom2,adreça,email,tlf,num ss,dia contratacio, salari,
+m1000,1234,true,moritz
+juan,1234,false,juan

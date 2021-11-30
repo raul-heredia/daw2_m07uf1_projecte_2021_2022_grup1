@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+session_start(); 
+if (isset($_SESSION['bibliotecari'])) {
+    $USER = $_SESSION['bibliotecari'];
+?>    
+    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,8 +17,15 @@
 </head>
 
 <body>
+    <nav>
+    <ul>
+        <li><a href=""><i class="fas fa-power-off"></i></a></li>
+        <li><a class="disabled"><i class="fas fa-user"></i><?php echo $USER?></a></li>
+        <li><a href="">Enrere</a></li>
+    </ul>
+    </nav>
     <main>
-        <h1>Benvingut $bibliotecari</h1>
+        <h1>Benvingut <?php echo $USER ?></h1>
         <h1 class="option-title">Llibres</h1>
         <div class="options-flex">
             <div class="option">
@@ -67,3 +79,8 @@
 </body>
 
 </html>
+<?php
+}else{
+    header("Location: ../../403.html");
+}
+?>

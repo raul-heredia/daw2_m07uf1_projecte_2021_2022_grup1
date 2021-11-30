@@ -1,15 +1,7 @@
 <?php 
-$USER = "m1000";
-$NOMCOMPLET = "Moritz Neuer";
-
-function enrere(){
-    if (isset($_SERVER["HTTP_REFERER"])) {
-        header("Location: " . $_SERVER["HTTP_REFERER"]);
-    }
-}
-
+if (isset($_SESSION['administrador'])) {
+    $USER = $_SESSION['administrador'];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -114,3 +106,8 @@ function enrere(){
 </body>
 
 </html>
+<?php
+}else{
+    header("Location: ../../403.html");
+}
+?>
