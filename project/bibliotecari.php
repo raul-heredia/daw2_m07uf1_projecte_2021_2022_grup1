@@ -28,10 +28,12 @@ if (isset($_SESSION['bibliotecari'])) {
         <h1>Benvingut <?php echo $USER ?></h1>
         <h1 class="option-title">Llibres</h1>
         <div class="options-flex">
-            <div class="option">
-                <i class="option-icon fas fa-books"></i>
-                <p class="option-p">Visualitzar Llibres</p>
-            </div>
+            <a href="./scripts/llistar/llistarL.php">
+                <div class="option">
+                    <i class="option-icon fas fa-books"></i>
+                    <p class="option-p">Visualitzar Llibres</p>
+                </div>
+            </a>
             <a class="afegir" href="./forms/llibre/afegirL.html">
                 <div class="option">
                     <i class="option-icon fas fa-book"></i>
@@ -53,10 +55,12 @@ if (isset($_SESSION['bibliotecari'])) {
         </div>
         <h1 class="option-title">Usuaris</h1>
         <div class="options-flex">
+        <a href="./scripts/llistar/llistarC.php"> 
             <div class="option">
                 <i class="option-icon fas fa-users"></i>
                 <p class="option-p">Visualitzar Usuaris</p>
             </div>
+        </a>   
             <a class="afegir" href="forms/bibliotecari/afegir.html">
                 <div class="option">
                     <i class="option-icon fas fa-user-minus"></i>
