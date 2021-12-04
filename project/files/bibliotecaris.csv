@@ -1,3 +1,2 @@
-username,passwd,isAdmin,nom,cognom1,cognom2,adreça,email,tlf,num ss,dia contratacio, salari,
-m1000,1234,true,moritz
-juan,1234,false,juan
+m1000,password123,true,Moritz,Neuer Shuster,C/ Aragó 420,609998877,12345678900,04-12-2008,1800
+jupega,fjeclot12,false,Juan,Pelayo Gaitán,C/ Casp 333,722976431,02-10-2016,1300

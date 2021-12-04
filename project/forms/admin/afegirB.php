@@ -18,12 +18,8 @@
                 <label>Nom</label>
             </div>
             <div class="field">
-                <input id="cognom1" name="cognom1" type="text" required />
-                <label>Cognom 1</label>
-            </div>
-            <div class="field">
-                <input id="cognom2" name="cognom2" type="text" required />
-                <label>Cognom2</label>
+                <input id="cognoms" name="cognoms" type="text" required />
+                <label>Cognoms</label>
             </div>
             <div class="field">
                 <input id="adreca" name="adreca" type="text" required />

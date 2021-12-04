@@ -42,5 +42,7 @@ else
 fi
 fi
 
-docker run --name m07uf1projecte -p 8080:80 --restart unless-stopped -v ${PWD}/project:/var/www/html -d php:7.4-apache-bullseye > /dev/null 2>&1 && echo "[OK] S'ha desplegat el contenidor" || echo "[ERROR] No s'ha pogut crear el contenidor"
+docker build -t php-7-4-composer-carbonell-heredia . > /dev/null 2>&1 && echo "[OK] S'ha construit la imatge" || echo "[ERROR] No s'ha pogut construir la imatge"
+
+docker run --name m07uf1projecte -p 80:80 --restart unless-stopped -v ${PWD}/project:/var/www/html -d php-7-4-composer-carbonell-heredia > /dev/null 2>&1 && echo "[OK] S'ha desplegat el contenidor" || echo "[ERROR] No s'ha pogut crear el contenidor, comprova que els ports no estiguin en ús"
 
