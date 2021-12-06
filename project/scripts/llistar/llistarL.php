@@ -20,6 +20,11 @@
             <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
                 integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
             <title>Llista de Llibres</title>
+            <style>
+                <?php 
+                include '/var/www/html/css/style.css'; // Per a que dompdf carregui el css correctament
+                ?>
+            </style>
         </head>
 
         <body>
@@ -29,7 +34,12 @@
                 <li><a class="disabled"><i class="fas fa-user"></i><?php echo $USER?></a></li>
                 <li><a href="">Enrere</a></li>
             </ul>
-            </nav>>
+            </nav>
+            <main>
+            <form action="../dompdf/html2pdf.php" method="GET">
+                <input type="text" class="hidden" name="file" value="/scripts/llistar/llistarL.php">
+                <input type="submit" value="Genera PDF">
+            </form>
             <table>
                 <tr>
                     <th colspan="5" id="colspan"><h2>Llista de llibres de la biblioteca</h2></th>
@@ -61,6 +71,7 @@
                             <?php
                         }?>
                 </tr>
+                </main>
                 <?php
             }
             fclose($LLIBRES);

@@ -20,6 +20,7 @@ main{
 nav{
   position: fixed;
   width: 100%;
+
 }
 
 nav ul {
@@ -243,4 +244,10 @@ main a:hover{
     text-align: left;
     background-color: #1976d2;
     color: white;
+  }
+
+
+  /*PDF INPUT*/
+  .hidden{
+    display: none;
   }

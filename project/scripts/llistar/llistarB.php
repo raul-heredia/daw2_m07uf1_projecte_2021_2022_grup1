@@ -9,10 +9,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="/var/www/html/css/style.css" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>Llista de Clients</title>
+    <style>
+        <?php 
+        include '/var/www/html/css/style.css'; // Per a que dompdf carregui el css correctament
+        ?>
+    </style>
 </head>
 
 <body>
@@ -22,10 +27,15 @@
         <li><a class="disabled"><i class="fas fa-user"></i><?php echo $USER?></a></li>
         <li><a href="">Enrere</a></li>
     </ul>
-    </nav>>
+    </nav>
+    <main>
+    <form action="../dompdf/html2pdf.php" method="GET">
+            <input type="text" class="hidden" name="file" value="/scripts/llistar/llistarB.php">
+            <input type="submit" value="Genera PDF">
+    </form>
     <table>
         <tr>
-            <th colspan="9"><h2>Llista de treballadors de la biblioteca</h2></th>
+            <th colspan="9" id="colspan"><h2>Llista de treballadors de la biblioteca</h2></th>
         <tr>
             <th>Admin</th>
             <th>Nom d'Usuari</th>
@@ -61,8 +71,9 @@ if (($TREBALLADORS = fopen("../../files/bibliotecaris.csv", "r")) !== FALSE) {
             <td><?php echo $BIBLIOTECARIS[9]?></td>
             <td><?php echo $BIBLIOTECARIS[10]?>€</td>
         </tr>
+        </main>
         <?php
     }
-    fclose($CLIENTS);
+    fclose($TREBALLADORS);
 } 
 ?>
