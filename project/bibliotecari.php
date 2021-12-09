@@ -1,7 +1,8 @@
 <?php
 session_start(); 
 if (isset($_SESSION['bibliotecari'])) {
-    $USER = $_SESSION['bibliotecari'];
+    $USERNAME = $_SESSION['bibliotecari'][0];
+    $USER = $_SESSION['bibliotecari'][1];
 ?>    
     <!DOCTYPE html>
 <html lang="en">
@@ -20,12 +21,12 @@ if (isset($_SESSION['bibliotecari'])) {
     <nav>
     <ul>
         <li><a href=""><i class="fas fa-power-off"></i></a></li>
-        <li><a class="disabled"><i class="fas fa-user"></i><?php echo $USER?></a></li>
+        <li><a class="disabled"><i class="fas fa-user"></i><?php echo $USERNAME?></a></li>
         <li><a href="">Enrere</a></li>
     </ul>
     </nav>
     <main>
-        <h1>Benvingut <?php echo $USER ?></h1>
+        <h1>Benvingut <strong><?php echo $USER ?></strong></h1>
         <h1 class="option-title">Llibres</h1>
         <div class="options-flex">
             <a href="./scripts/llistar/llistarL.php">
