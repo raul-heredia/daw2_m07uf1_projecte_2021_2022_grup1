@@ -31,10 +31,12 @@ if (isset($_SESSION['usuari'])) {
                     <p class="option-p">Les meves dades</p>
                 </div>
                 </a>
+                <a href="./scripts/llistar/llibresD.php">
                 <div class="option">
                     <i class="option-icon fas fa-book"></i>
                     <p class="option-p">Llibres Disponibles</p>
                 </div>
+                </a>
             </div>
         </main>
     </body>
