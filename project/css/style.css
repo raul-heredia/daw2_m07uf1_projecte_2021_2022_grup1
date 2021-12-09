@@ -80,8 +80,6 @@ main a:hover{
 strong{
   color: #1976d2;
 }
-
-
 /*Login Form*/
 
 .wrapper {
@@ -212,6 +210,13 @@ strong{
       margin: 5px;
   }
 
+  .option-list {
+    width: auto;
+    text-align: center;
+    margin: 5px;
+}
+
+
   .option-icon {
       padding: 10px 10px 10px 10px;
       font-size: 125px;
@@ -223,6 +228,10 @@ strong{
       color: black;
   }
 
+  .option-list ul li{
+    list-style: none;
+    text-align: left;
+  }
 
   /*Taules*/
   table {
