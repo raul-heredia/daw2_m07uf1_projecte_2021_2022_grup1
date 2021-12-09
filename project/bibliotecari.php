@@ -22,7 +22,8 @@ if (isset($_SESSION['bibliotecari'])) {
     <ul>
         <li><a href=""><i class="fas fa-power-off"></i></a></li>
         <li><a class="disabled"><i class="fas fa-user"></i><?php echo $USERNAME?></a></li>
-        <li><a href="">Enrere</a></li>
+        <li><a class="disabled"><strong>Sessió: </strong><?php echo session_id()?></a></li>
+        <li><a href=""><i class="fas fa-arrow-left"></i></a></li>
     </ul>
     </nav>
     <main>
@@ -35,7 +36,7 @@ if (isset($_SESSION['bibliotecari'])) {
                     <p class="option-p">Visualitzar Llibres</p>
                 </div>
             </a>
-            <a class="afegir" href="./forms/llibre/afegirL.html">
+            <a class="afegir" href="./forms/llibre/afegirL.php">
                 <div class="option">
                     <i class="option-icon fas fa-book"></i>
                     <p class="option-p">Afegir Llibre</p>
@@ -47,7 +48,7 @@ if (isset($_SESSION['bibliotecari'])) {
                     <p class="option-p">Modificar Llibre</p>
                 </div>
             </a>
-            <a class="elimina" href="./forms/llibre/eliminaL.html">
+            <a class="elimina" href="./forms/llibre/eliminaL.php">
                 <div class="option">
                     <i class="option-icon fas fa-book"></i>
                     <p class="option-p">Eliminar Llibre</p>
@@ -62,7 +63,7 @@ if (isset($_SESSION['bibliotecari'])) {
                 <p class="option-p">Visualitzar Usuaris</p>
             </div>
         </a>   
-            <a class="afegir" href="forms/bibliotecari/afegir.html">
+            <a class="afegir" href="forms/bibliotecari/afegir.php">
                 <div class="option">
                     <i class="option-icon fas fa-user-minus"></i>
                     <p class="option-p">Afegir Usuari</p>
@@ -74,10 +75,15 @@ if (isset($_SESSION['bibliotecari'])) {
                     <p class="option-p">Modificar Usuari</p>
                 </div>
             </a>
-            <a class="elimina" href="./forms/bibliotecari/esborra.html">
+            <a class="elimina" href="./forms/bibliotecari/esborra.php">
                 <div class="option">
                     <i class="option-icon fas fa-user-minus"></i>
                     <p class="option-p">Eliminar Usuari</p>
+                </div>
+            <a href="./scripts/llistar/bibliotecariD.php">
+                <div class="option">
+                    <i class="option-icon fas fa-user"></i>
+                    <p class="option-p">Les meves dades</p>
                 </div>
         </div>
     </main>
