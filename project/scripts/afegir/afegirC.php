@@ -51,12 +51,22 @@
         $FITXER = fopen($FILENAME, "a");
         
         $USUARI = new Client($USERNAME,$NOM,$COGNOM,$ADRECA,$EMAIL,$TELEFON);
-        
-        echo $USUARI;
-       /*  $LINIA = array($USUARI->toString());
+        $LINIA = array($USUARI->getUserName(), $USUARI->getPassword(), $USUARI->getNom(), $USUARI->getCognom(), $USUARI->getAdreca(), $USUARI->getEmail(), $USUARI->getTelefon(),"false",0,0);
         fputcsv($FITXER,$LINIA);
-        fclose($FITXER); */
+        fclose($FITXER);
 
+
+        ?>
+        <div class="options-flex">
+            <div class="option-list">
+            <h3>L'usuari <?php echo $USUARI->getUserName()?> ha estat afegit correctament.</h3>
+            <ul>
+                <li><h3><strong>Resum:</strong></h3></li>
+                <li><strong>Nom Complet: </strong><?php echo "{$USUARI->getNom()} {$USUARI->getCognom()}"?></li>
+                <li><strong>Direcció: </strong><?php echo $USUARI->getAdreca() ?></li>
+                <li><strong>Direcció de Correu Electrònic: </strong><?php echo $USUARI->getEmail() ?></li>
+                <li><strong>Nª de telèfon: </strong><?php echo $USUARI->getTelefon() ?></li>
+                <?php
         }else{
             header("Location: ../../403.html");
         } 
