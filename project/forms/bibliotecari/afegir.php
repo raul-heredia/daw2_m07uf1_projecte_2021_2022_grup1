@@ -12,7 +12,11 @@
 <body id="index">
     <div class="wrapper">
         <h2 class="title">Afegir Usuari</h2>
-        <form autocomplete="off">
+        <form autocomplete="off" action="../../scripts/afegir/afegirC.php" method="POST">
+            <div class="field">
+                <input id="username" name="username" type="text" required />
+                <label>Nom d'Usuari</label>
+            </div>
             <div class="field">
                 <input id="nom" name="nom" type="text" required />
                 <label>Nom</label>

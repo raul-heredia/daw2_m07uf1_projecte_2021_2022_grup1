@@ -65,7 +65,7 @@ if (isset($_SESSION['bibliotecari'])) {
         </a>   
             <a class="afegir" href="forms/bibliotecari/afegir.php">
                 <div class="option">
-                    <i class="option-icon fas fa-user-minus"></i>
+                    <i class="option-icon fas fa-user-plus"></i>
                     <p class="option-p">Afegir Usuari</p>
                 </div>
             </a>
