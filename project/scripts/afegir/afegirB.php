@@ -1,5 +1,4 @@
 <?php
-    include '/var/www/html/scripts/global.php';
     $USER = "TEST";
     /* session_start();
     if (isset($_SESSION['bibliotecari'])) {
@@ -22,7 +21,7 @@
             <link rel="stylesheet" href="../../css/style.css" />
             <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
                 integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-            <title>Llista de Clients</title>
+            <title>Llista de Bibliotecaris</title>
             <style>
                 <?php 
                 include '/var/www/html/css/style.css'; // Per a que dompdf carregui el css correctament
@@ -45,17 +44,18 @@
         $COGNOM = $_POST['cognom'];
         $ADRECA = $_POST['adreca'];
         $EMAIL = $_POST['email'];
+        $NUMSS = $_POST['numeross'];
         $TELEFON = $_POST['telefon'];
+        $DATACON = $_POST['datacon'];
+        $SALARI = $_POST['salari'];
 
-        $FILENAME = "../../files/clients.csv";
+
+        
+        $FILENAME = "../../files/bibliotecaris.csv";
         $FITXER = fopen($FILENAME, "a");
-        
-        $USUARI = new Client($USERNAME,$NOM,$COGNOM,$ADRECA,$EMAIL,$TELEFON);
-        
-        echo $USUARI;
-       /*  $LINIA = array($USUARI->toString());
+        $LINIA = array($USERNAME,1234,$NOM,$COGNOM,$ADRECA,$EMAIL,$TELEFON,$NUMSS,$DATACON,$SALARI);
         fputcsv($FITXER,$LINIA);
-        fclose($FITXER); */
+        fclose($FITXER);
 
         }else{
             header("Location: ../../403.html");

@@ -25,7 +25,7 @@ if (isset($_SESSION['usuari'])) {
         </ul>
         </nav>
         <main>
-            <h1>Benvingut <strong><?php echo $USER?></strong></h1>
+            <h1>Benvingut/da <strong><?php echo $USER?></strong></h1>
             <div class="options-flex">
                 <a href="./scripts/llistar/clientD.php">
                 <div class="option">

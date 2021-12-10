@@ -12,7 +12,7 @@
 <body id="index">
     <div class="wrapper">
         <h2 class="title">Afegir Llibre</h2>
-        <form autocomplete="off">
+        <form autocomplete="off" action="../../scripts/afegir/afegirL.php" method="POST">
             <div class="field">
                 <input id="isbn" name="isbn" type="text" required />
                 <label>ISBN</label>

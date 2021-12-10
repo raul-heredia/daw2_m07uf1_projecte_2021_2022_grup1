@@ -27,14 +27,16 @@ if (isset($_SESSION['administrador'])) {
     </ul>
     </nav>
     <main>
-        <h1>Benvingut <strong><?php echo $USER?></strong></h1>
+        <h1>Benvingut/da <strong><?php echo $USER?></strong></h1>
         <h1 class="option-title">Bibliotecaris</h1>
         <div class="options-flex">
-            <div class="option">
-                <i class="option-icon fas fa-users"></i>
-                <p class="option-p">Visualitzar Bibliotecaris</p>
+             <a class="afegir" href="./scripts/llistar/llistarB.php">
+                <div class="option">
+                    <i class="option-icon fas fa-users"></i>
+                    <p class="option-p">Visualitzar Bibliotecaris</p>
             </div>
-            <a class="afegir" href="./forms/admin/afegirB.html">
+            </a>
+            <a class="afegir" href="./forms/admin/afegirB.php">
                 <div class="option">
                     <i class="option-icon fas fa-user-plus"></i>
                     <p class="option-p">Afegir Bibliotecari</p>
@@ -46,7 +48,7 @@ if (isset($_SESSION['administrador'])) {
                     <p class="option-p">Modificar Bibliotecari</p>
                 </div>
             </a>
-            <a class="elimina" href="./forms/admin/esborraB.html">
+            <a class="elimina" href="./forms/admin/esborraB.php">
                 <div class="option">
                     <i class="option-icon fas fa-user-minus"></i>
                     <p class="option-p">Eliminar Bibliotecari</p>
@@ -55,11 +57,13 @@ if (isset($_SESSION['administrador'])) {
         </div>
         <h1 class="option-title">Llibres</h1>
         <div class="options-flex">
-            <div class="option">
-                <i class="option-icon fas fa-books"></i>
-                <p class="option-p">Visualitzar Llibres</p>
+             <a class="afegir" href="./scripts/llistar/llistarL.php">
+                <div class="option">
+                    <i class="option-icon fas fa-books"></i>
+                    <p class="option-p">Visualitzar Llibres</p>
             </div>
-            <a class="afegir" href="./forms/llibre/afegirL.html">
+            </a>
+            <a class="afegir" href="./forms/llibre/afegirL.php">
                 <div class="option">
                     <i class="option-icon fas fa-book"></i>
                     <p class="option-p">Afegir Llibre</p>
@@ -71,7 +75,7 @@ if (isset($_SESSION['administrador'])) {
                     <p class="option-p">Modificar Llibre</p>
                 </div>
             </a>
-            <a class="elimina" href="./forms/llibre/eliminaL.html">
+            <a class="elimina" href="./forms/llibre/eliminaL.php">
                 <div class="option">
                     <i class="option-icon fas fa-book"></i>
                     <p class="option-p">Eliminar Llibre</p>
@@ -81,11 +85,13 @@ if (isset($_SESSION['administrador'])) {
 
         <h1 class="option-title">Usuaris</h1>
         <div class="options-flex">
-            <div class="option">
-                <i class="option-icon fas fa-users"></i>
-                <p class="option-p">Visualitzar Usuaris</p>
-            </div>
-            <a class="afegir" href="./forms/bibliotecari/afegir.html">
+            <a class="afegir" href="./scripts/llistar/llistarC.php">
+                <div class="option">
+                    <i class="option-icon fas fa-users"></i>
+                    <p class="option-p">Visualitzar Usuaris</p>
+                </div>
+            </a>
+            <a class="afegir" href="./forms/bibliotecari/afegir.php">
                 <div class="option">
                     <i class="option-icon fas fa-user-plus"></i>
                     <p class="option-p">Afegir Usuari</p>
@@ -97,7 +103,7 @@ if (isset($_SESSION['administrador'])) {
                     <p class="option-p">Modificar Usuari</p>
                 </div>
             </a>
-            <a class="elimina" href="./forms/bibliotecari/esborra.html">
+            <a class="elimina" href="./forms/bibliotecari/esborra.php">
                 <div class="option">
                     <i class="option-icon fas fa-user-minus"></i>
                     <p class="option-p">Eliminar Usuari</p>

@@ -12,13 +12,17 @@
 <body id="index">
     <div class="wrapper">
         <h2 class="title">Afegir Bibliotecari</h2>
-        <form autocomplete="off">
+        <form autocomplete="off" action="../../scripts/afegir/afegirB.php" method="POST">
+        <div class="field">
+                <input id="username" name="username" type="text" required />
+                <label>Nom d'Usuari</label>
+            </div>
             <div class="field">
                 <input id="nom" name="nom" type="text" required />
                 <label>Nom</label>
             </div>
             <div class="field">
-                <input id="cognoms" name="cognoms" type="text" required />
+                <input id="cognoms" name="cognom" type="text" required />
                 <label>Cognoms</label>
             </div>
             <div class="field">
@@ -36,6 +40,14 @@
             <div class="field">
                 <input id="telefon" name="telefon" type="text" required />
                 <label>Telèfon</label>
+            </div>
+            <div class="field">
+                <input id="datacon" name="datacon" type="text" required />
+                <label>Data de Contractació</label>
+            </div>
+            <div class="field">
+                <input id="salari" name="salari" type="text" required />
+                <label>Salari</label>
             </div>
             <div class="field">
                 <input type="submit" value="Afegir" />

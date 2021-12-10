@@ -27,7 +27,7 @@ if (isset($_SESSION['bibliotecari'])) {
     </ul>
     </nav>
     <main>
-        <h1>Benvingut <strong><?php echo $USER ?></strong></h1>
+        <h1>Benvingut/da <strong><?php echo $USER ?></strong></h1>
         <h1 class="option-title">Llibres</h1>
         <div class="options-flex">
             <a href="./scripts/llistar/llistarL.php">

@@ -1,5 +1,4 @@
 <?php
-    include '/var/www/html/scripts/global.php';
     $USER = "TEST";
     /* session_start();
     if (isset($_SESSION['bibliotecari'])) {
@@ -40,22 +39,16 @@
             </nav>
             <main>
         <?php
-        $USERNAME = $_POST['username'];
-        $NOM = $_POST['nom'];
-        $COGNOM = $_POST['cognom'];
-        $ADRECA = $_POST['adreca'];
-        $EMAIL = $_POST['email'];
-        $TELEFON = $_POST['telefon'];
+        $ISBN = $_POST['isbn'];
+        $TITOL = $_POST['titol'];
+        $AUTOR = $_POST['autor'];
 
-        $FILENAME = "../../files/clients.csv";
+        $FILENAME = "../../files/llibres.csv";
         $FITXER = fopen($FILENAME, "a");
+        $LINIA = array($ISBN,$TITOL,$AUTOR,"false",0,0);
         
-        $USUARI = new Client($USERNAME,$NOM,$COGNOM,$ADRECA,$EMAIL,$TELEFON);
-        
-        echo $USUARI;
-       /*  $LINIA = array($USUARI->toString());
         fputcsv($FITXER,$LINIA);
-        fclose($FITXER); */
+        fclose($FITXER);
 
         }else{
             header("Location: ../../403.html");
