@@ -1,13 +1,24 @@
 <?php
-
-class Client{
-    private $USERNAME;
-    private $PASSWORD; 
-    private $NOM; 
-    private $COGNOM; 
-    private $ADRECA; 
-    private $EMAIL; 
-    private $TELEFON;
+class Usuari{
+    protected $USERNAME;
+    protected $PASSWORD; 
+    protected $NOM; 
+    protected $COGNOM; 
+    protected $ADRECA; 
+    protected $EMAIL; 
+    protected $TELEFON;
+    public function __construct($USERNAME, $NOM, $COGNOM, $ADRECA, $EMAIL, $TELEFON){
+        $this->USERNAME = $USERNAME;
+        $this->NOM = $NOM;
+        $this->PASSWORD = 1234;
+        $this->COGNOM = $COGNOM;
+        $this->ADRECA = $ADRECA;
+        $this->EMAIL = $EMAIL;
+        $this->TELEFON = $TELEFON;
+    }
+}
+class Client extends Usuari{
+    
     
     public function __construct($USERNAME, $NOM, $COGNOM, $ADRECA, $EMAIL, $TELEFON){
         $this->USERNAME = $USERNAME;
@@ -44,14 +55,10 @@ class Client{
     }
 }
 
-class Treballador{
+class Treballador extends Usuari{
 
 }
 
 class Llibre{
-
-}
-
-class Sessio{
 
 }

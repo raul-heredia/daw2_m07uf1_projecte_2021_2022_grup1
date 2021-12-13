@@ -1,4 +1,5 @@
 <?php
+    include '/var/www/html/scripts/global.php';
     $USER;
     session_start();
     if (isset($_SESSION['bibliotecari'])) {
@@ -27,7 +28,7 @@
 <body id="index">
     <nav>
     <ul>
-        <li><a href=""><i class="fas fa-power-off"></i></a></li>
+        <li><a href="../../scripts/tancarsessio.php"><i class="fas fa-power-off"></i></a></li>
         <li><a class="disabled"><i class="fas fa-user"></i><?php echo $USERNAME?></a></li>
         <li><a class="disabled"><strong>Sessió: </strong><?php echo session_id()?></a></li>
         <li><a href=""><i class="fas fa-arrow-left"></i></a></li>
