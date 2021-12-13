@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if (isset($_SESSION['administrador'])) {
+        $USERNAME = $_SESSION['administrador'][0];
+        $USER = $_SESSION['administrador'][1];
+        ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,10 +12,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+                integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>Document</title>
 </head>
-
 <body id="index">
+    <nav>
+    <ul>
+        <li><a href=""><i class="fas fa-power-off"></i></a></li>
+        <li><a class="disabled"><i class="fas fa-user"></i><?php echo $USERNAME?></a></li>
+        <li><a class="disabled"><strong>Sessió: </strong><?php echo session_id()?></a></li>
+        <li><a href=""><i class="fas fa-arrow-left"></i></a></li>
+    </ul>
+    </nav>
     <div class="wrapper">
         <h2 class="title">Afegir Bibliotecari</h2>
         <form autocomplete="off" action="../../scripts/afegir/afegirB.php" method="POST">
@@ -55,5 +70,8 @@
         </form>
     </div>
 </body>
-
 </html>
+<?php
+}else{
+    echo "error";
+}

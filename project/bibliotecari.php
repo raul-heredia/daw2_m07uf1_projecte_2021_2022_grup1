@@ -42,7 +42,7 @@ if (isset($_SESSION['bibliotecari'])) {
                     <p class="option-p">Afegir Llibre</p>
                 </div>
             </a>
-            <a class="modificar" href="#">
+            <a class="modificar" href="./forms/llibre/modificarL.php">
                 <div class="option">
                     <i class="option-icon fas fa-book"></i>
                     <p class="option-p">Modificar Llibre</p>
@@ -63,19 +63,19 @@ if (isset($_SESSION['bibliotecari'])) {
                 <p class="option-p">Visualitzar Usuaris</p>
             </div>
         </a>   
-            <a class="afegir" href="forms/bibliotecari/afegir.php">
+            <a class="afegir" href="./forms/client/afegir.php">
                 <div class="option">
                     <i class="option-icon fas fa-user-plus"></i>
                     <p class="option-p">Afegir Usuari</p>
                 </div>
             </a>
-            <a class="modificar" href="#">
+            <a class="modificar" href="./forms/client/esborra.php">
                 <div class="option">
                     <i class="option-icon fas fa-user-edit"></i>
                     <p class="option-p">Modificar Usuari</p>
                 </div>
             </a>
-            <a class="elimina" href="./forms/bibliotecari/esborra.php">
+            <a class="elimina" href="./forms/client/esborra.php">
                 <div class="option">
                     <i class="option-icon fas fa-user-minus"></i>
                     <p class="option-p">Eliminar Usuari</p>

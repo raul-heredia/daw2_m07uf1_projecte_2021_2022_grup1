@@ -1,7 +1,9 @@
 <?php
-    $USER = "TEST";
+    session_start();
+    if (isset($_SESSION['administrador'])) {
+        $USERNAME = $_SESSION['administrador'][0];
+        $USER = $_SESSION['administrador'][1];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,11 +23,12 @@
 </head>
 
 <body>
-    <nav>
+<nav>
     <ul>
         <li><a href=""><i class="fas fa-power-off"></i></a></li>
-        <li><a class="disabled"><i class="fas fa-user"></i><?php echo $USER?></a></li>
-        <li><a href="">Enrere</a></li>
+        <li><a class="disabled"><i class="fas fa-user"></i><?php echo $USERNAME?></a></li>
+        <li><a class="disabled"><strong>Sessió: </strong><?php echo session_id()?></a></li>
+        <li><a href=""><i class="fas fa-arrow-left"></i></a></li>
     </ul>
     </nav>
     <main>
@@ -75,5 +78,8 @@ if (($TREBALLADORS = fopen("../../files/bibliotecaris.csv", "r")) !== FALSE) {
         <?php
     }
     fclose($TREBALLADORS);
+}
+}else{
+    echo "Error";
 } 
 ?>

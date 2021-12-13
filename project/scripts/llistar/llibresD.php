@@ -23,13 +23,14 @@
         </head>
 
         <body>
-            <nav>
-            <ul>
-                <li><a href=""><i class="fas fa-power-off"></i></a></li>
-                <li><a class="disabled"><i class="fas fa-user"></i><?php echo $USERNAME?></a></li>
-                <li><a href="">Enrere</a></li>
-            </ul>
-            </nav>
+        <nav>
+        <ul>
+            <li><a href=""><i class="fas fa-power-off"></i></a></li>
+            <li><a class="disabled"><i class="fas fa-user"></i><?php echo $USERNAME?></a></li>
+            <li><a class="disabled"><strong>Sessió: </strong><?php echo session_id()?></a></li>
+            <li><a href=""><i class="fas fa-arrow-left"></i></a></li>
+        </ul>
+        </nav>
             <main>
                 <table>
                 <tr>
