@@ -38,8 +38,10 @@ fi
 
 chown -R www-data.www-data project/files
 
+echo "Construint imatge"
 docker build -t php-7-4-composer-carbonell-heredia . >/dev/null 2>&1 && echo "[OK] S'ha construit la imatge" || echo "[ERROR] No s'ha pogut construir la imatge"
 
 docker run --name m07uf1projecte -p 80:80 --restart unless-stopped -v ${PWD}/project:/var/www/html -d php-7-4-composer-carbonell-heredia >/dev/null 2>&1 && echo "[OK] S'ha desplegat el contenidor" || echo "[ERROR] No s'ha pogut crear el contenidor, comprova que els ports no estiguin en ús"
 
+echo "Afegint dompdf"
 docker exec -it m07uf1projecte composer require dompdf/dompdf >/dev/null 2>&1 && echo "[OK] S'ha afegit dompdf" || "[ERROR] No s'ha afegit dompdf"

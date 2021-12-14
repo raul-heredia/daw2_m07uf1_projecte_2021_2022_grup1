@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
                 integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <title>Modificar Client</title>
+    <title>Esborrar Client</title>
 </head>
 
 <body id="index">
@@ -31,11 +31,11 @@
         <li><a href="../../scripts/tancarsessio.php"><i class="fas fa-power-off"></i></a></li>
         <li><a class="disabled"><i class="fas fa-user"></i><?php echo $USERNAME?></a></li>
         <li><a class="disabled"><strong>Sessió: </strong><?php echo session_id()?></a></li>
-        <li><a href=""><i class="fas fa-arrow-left"></i></a></li>
+        <li><a href="../../scripts/retornainici.php"><i class="fas fa-arrow-left"></i></a></li>
     </ul>
     </nav>
     <div class="wrapper">
-        <h2 class="title">Modificar Usuari</h2>
+        <h2 class="title">Esborrar Usuari</h2>
         <form autocomplete="off">
             <div class="field">
                 <input id="Username" name="username" type="text" required />

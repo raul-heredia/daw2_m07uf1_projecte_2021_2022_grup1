@@ -1,7 +1,7 @@
 <?php
 include '/var/www/html/scripts/global.php'; 
 session_start();
-if (isset($_SESSION['administrador'])) {
+if (isset($_SESSION['administrador'])) { 
     $USERNAME = $_SESSION['administrador'][0];
     $USER = $_SESSION['administrador'][1];
 ?>
@@ -24,14 +24,13 @@ if (isset($_SESSION['administrador'])) {
         <li><a href="./scripts/tancarsessio.php"><i class="fas fa-power-off"></i></a></li>
         <li><a class="disabled"><i class="fas fa-user"></i><?php echo $USERNAME?></a></li>
         <li><a class="disabled"><strong>Sessió: </strong><?php echo session_id()?></a></li>
-        <li><a href=""><i class="fas fa-arrow-left"></i></a></li>
     </ul>
     </nav>
     <main>
         <h1>Benvingut/da <strong><?php echo $USER?></strong></h1>
         <h1 class="option-title">Bibliotecaris</h1>
         <div class="options-flex">
-             <a class="afegir" href="./scripts/llistar/llistarB.php">
+             <a href="./scripts/llistar/llistarB.php">
                 <div class="option">
                     <i class="option-icon fas fa-users"></i>
                     <p class="option-p">Visualitzar Bibliotecaris</p>
@@ -58,7 +57,7 @@ if (isset($_SESSION['administrador'])) {
         </div>
         <h1 class="option-title">Llibres</h1>
         <div class="options-flex">
-             <a class="afegir" href="./scripts/llistar/llistarL.php">
+             <a href="./scripts/llistar/llistarL.php">
                 <div class="option">
                     <i class="option-icon fas fa-books"></i>
                     <p class="option-p">Visualitzar Llibres</p>
@@ -86,7 +85,7 @@ if (isset($_SESSION['administrador'])) {
 
         <h1 class="option-title">Usuaris</h1>
         <div class="options-flex">
-            <a class="afegir" href="./scripts/llistar/llistarC.php">
+            <a href="./scripts/llistar/llistarC.php">
                 <div class="option">
                     <i class="option-icon fas fa-users"></i>
                     <p class="option-p">Visualitzar Usuaris</p>
