@@ -58,8 +58,7 @@
                 <label>Telèfon</label>
             </div>
             <div class="field">
-                <input id="datacon" name="datacon" type="text" required />
-                <label>Data de Contractació</label>
+                <input id="datacon" name="datacon" type="date" required />
             </div>
             <div class="field">
                 <input id="salari" name="salari" type="text" required />
