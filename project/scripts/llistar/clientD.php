@@ -67,6 +67,6 @@
             }
             ?></div></div><?php
     }else{
-        echo "error";
+        header("Location: ../../403.php");
     }
 ?>

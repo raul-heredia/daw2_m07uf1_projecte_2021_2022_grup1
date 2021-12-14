@@ -1,3 +1,6 @@
+<?php
+header( "refresh:7;url=./index.html" );
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -118,11 +121,10 @@
     <div class="noise"></div>
     <div class="overlay"></div>
     <div class="terminal">
-        <h1>Error <span class="errorcode">404</span></h1>
-        <p class="output">L'usuari introduit no es correcte, comprova l'usuari i contrassenya i torna a intentar-ho.</p>
+        <h1>Error <span class="errorcode">403</span></h1>
+        <p class="output">No tens accés per a visualitzar aquesta pàgina, has iniciat sessió?.</p>
         <p class="output">En breus seràs redirigit a la pàgina d'inici, si no ets redirigit <a href="./index.html">Fes
-                clic
-                aquí</a> .</p>
+                clic aquí</a>.</p>
         <p class="output">Bona sort.</p>
     </div>
 </body>

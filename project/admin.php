@@ -118,6 +118,6 @@ if (isset($_SESSION['administrador'])) {
 </html>
 <?php
 }else{
-    header("Location: ../../403.html");
+    header("Location: ./403.php");
 }
 ?>

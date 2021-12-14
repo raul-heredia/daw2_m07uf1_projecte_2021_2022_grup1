@@ -1,15 +1,14 @@
 <?php
     include '/var/www/html/scripts/global.php';
-    include '/var/www/html/scripts/global.php';
     $USER;
     session_start();
     if (isset($_SESSION['bibliotecari'])) {
         $USERNAME = $_SESSION['bibliotecari'][0];
-        $USERNAME = $_SESSION['bibliotecari'][1];
+        $USER = $_SESSION['bibliotecari'][1];
     }
     if (isset($_SESSION['administrador'])) {
         $USERNAME = $_SESSION['administrador'][0];
-        $USERNAME = $_SESSION['administrador'][1];
+        $USER = $_SESSION['administrador'][1];
     }
     if($USER){
         ?>
@@ -23,7 +22,7 @@
             <link rel="stylesheet" href="../../css/style.css" />
             <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
                 integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-            <title>Llista de Clients</title>
+            <title>Afegir Clients</title>
             <style>
                 <?php 
                 include '/var/www/html/css/style.css'; // Per a que dompdf carregui el css correctament
@@ -42,7 +41,7 @@
         </nav>
             <main>
         <?php
-        $USERNAME = $_POST['username'];
+        $NOMUSUARI = $_POST['username'];
         $NOM = $_POST['nom'];
         $COGNOM = $_POST['cognom'];
         $ADRECA = $_POST['adreca'];
@@ -52,7 +51,7 @@
         $FILENAME = "../../files/clients.csv";
         $FITXER = fopen($FILENAME, "a");
         
-        $USUARI = new Client($USERNAME,$NOM,$COGNOM,$ADRECA,$EMAIL,$TELEFON);
+        $USUARI = new Client($NOMUSUARI,$NOM,$COGNOM,$ADRECA,$EMAIL,$TELEFON);
         $LINIA = array($USUARI->getUserName(), $USUARI->getPassword(), $USUARI->getNom(), $USUARI->getCognom(), $USUARI->getAdreca(), $USUARI->getEmail(), $USUARI->getTelefon(),"false",0,0);
         fputcsv($FITXER,$LINIA);
         fclose($FITXER);
@@ -70,7 +69,7 @@
                 <li><strong>Nª de telèfon: </strong><?php echo $USUARI->getTelefon() ?></li>
                 <?php
         }else{
-            header("Location: ../../403.html");
+            header("Location: ../../403.php");
         } 
         ?>
         </main>

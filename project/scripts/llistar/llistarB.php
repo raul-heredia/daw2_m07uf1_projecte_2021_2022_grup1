@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/var/www/html/css/style.css" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <title>Llista de Clients</title>
+    <title>Llista de Bibliotecaris</title>
     <style>
         <?php 
         include '/var/www/html/css/style.css'; // Per a que dompdf carregui el css correctament
@@ -81,6 +81,6 @@ if (($TREBALLADORS = fopen("../../files/bibliotecaris.csv", "r")) !== FALSE) {
     fclose($TREBALLADORS);
 }
 }else{
-    echo "Error";
+    header("Location: ../../403.php");
 } 
 ?>

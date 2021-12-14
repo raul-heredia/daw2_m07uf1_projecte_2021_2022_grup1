@@ -46,6 +46,6 @@ if (isset($_SESSION['usuari'])) {
     </html>
 <?php
 }else{
-    /* header("Location: ../../403.html"); */
+    /* header("Location: ../../403.php"); */
 }
 ?>

@@ -15,8 +15,7 @@
 			    $_SESSION['usuari'] = $SESSIONDATA;
                 header("Location: ../../client.php");
             }
-        }
-        fclose($CLIENTS);
+        }fclose($CLIENTS);
     } 
     if (($TREBALLADORS = fopen("../../files/bibliotecaris.csv", "r")) !== FALSE) {
         while (($BIBLIOTECARIS = fgetcsv($TREBALLADORS, 1000, ",")) !== FALSE) {
@@ -37,11 +36,9 @@
                 $_SESSION['bibliotecari'] = $SESSIONDATA;
                 header("Location: ../../bibliotecari.php");
             }
-        }
+        }fclose($TREBALLADORS); // Tanquem treballadors ja que es l'ultim
     }
     if($NOTFOUND){
-        fclose($TREBALLADORS); // Tanquem treballadors ja que es l'ultim
-        echo "Error";
-        /* header("Location: ../../404.html"); */
+        header("Location: ../../404.php");
     }
 ?>

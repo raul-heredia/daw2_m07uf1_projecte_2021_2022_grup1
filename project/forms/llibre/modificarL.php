@@ -51,5 +51,5 @@
 </html>
 <?php
 }else{
-    echo "Error";
+    header("Location: ../../403.php");
 }

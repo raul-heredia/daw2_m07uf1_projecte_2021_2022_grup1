@@ -15,7 +15,7 @@
             <link rel="stylesheet" href="/var/www/html/css/style.css" />
             <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
                 integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-            <title>Les meves dades</title>
+            <title>Llistat de llibres de la biblioteca</title>
             <style>
         <?php 
         include '/var/www/html/css/style.css'; // Per a que dompdf carregui el css correctament
@@ -88,6 +88,6 @@
                 fclose($LLIBRES);
             }
     }else{
-        echo "error";
+        header("Location: ../../403.php");
     }
 ?>

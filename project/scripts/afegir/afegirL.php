@@ -4,11 +4,11 @@
     session_start();
     if (isset($_SESSION['bibliotecari'])) {
         $USERNAME = $_SESSION['bibliotecari'][0];
-        $USERNAME = $_SESSION['bibliotecari'][1];
+        $USER = $_SESSION['bibliotecari'][1];
     }
     if (isset($_SESSION['administrador'])) {
         $USERNAME = $_SESSION['administrador'][0];
-        $USERNAME = $_SESSION['administrador'][1];
+        $USER = $_SESSION['administrador'][1];
     }
     if($USER){
         ?>
@@ -22,7 +22,7 @@
             <link rel="stylesheet" href="../../css/style.css" />
             <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
                 integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-            <title>Llista de Clients</title>
+            <title>Afegir Llibre</title>
             <style>
                 <?php 
                 include '/var/www/html/css/style.css'; // Per a que dompdf carregui el css correctament
@@ -52,7 +52,7 @@
         fclose($FITXER);
 
         }else{
-            header("Location: ../../403.html");
+            header("Location: ../../403.php");
         } 
         ?>
         </main>
