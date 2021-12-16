@@ -13,63 +13,69 @@
     if($USER){
         ?>
         <!DOCTYPE html>
-        <html lang="en">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>Eliminar Client</title>
+    <style>
+        <?php 
+        include '/var/www/html/css/style.css'; // Per a que dompdf carregui el css correctament
+        ?>
+    </style>
+</head>
 
-        <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="../../css/style.css" />
-            <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-                integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-            <title>Modificar Client</title>
-            <style>
-                <?php 
-                include '/var/www/html/css/style.css'; // Per a que dompdf carregui el css correctament
-                ?>
-            </style>
-        </head>
-
-        <body>
-        <nav>
-        <ul>
-            <li><a href="../../scripts/tancarsessio.php"><i class="fas fa-power-off"></i></a></li>
-            <li><a class="disabled"><i class="fas fa-user"></i><?php echo $USERNAME?></a></li>
-            <li><a class="disabled"><strong>Sessió: </strong><?php echo session_id()?></a></li>
-            <li><a href=""><i class="fas fa-arrow-left"></i></a></li>
-        </ul>
-        </nav>
-            <main>
+<body>
+<nav>
+    <ul>
+        <li><a href="../../scripts/tancarsessio.php"><i class="fas fa-power-off"></i></a></li>
+        <li><a class="disabled"><i class="fas fa-user"></i><?php echo $USERNAME?></a></li>
+        <li><a class="disabled"><strong>Sessió: </strong><?php echo session_id()?></a></li>
+        <li><a href="../retornainici.php"><i class="fas fa-arrow-left"></i></a></li>
+    </ul>
+    </nav>
+    <main>
+    <?php
+    $USUARISTEMP = array();
+    if( $_POST["method"] == "PUT" ){
+        if (($CLIENTS = fopen("../../files/clients.csv", "r")) !== FALSE) {
+            while (($USUARIS = fgetcsv($CLIENTS, 1000, ",")) !== FALSE) {
+                    if($USUARIS[0] == $_POST['username']){
+                        if($_POST['nom']){
+                            $USUARIS[2] = $_POST['nom'];
+                        }
+                        if($_POST['cognoms']){
+                            $USUARIS[3] = $_POST['cognom'];
+                        }
+                        if($_POST['adreca']){
+                            $USUARIS[4] = $_POST['adreca'];
+                        }
+                        if($_POST['email']){
+                            $USUARIS[5] = $_POST['email'];
+                        }
+                        if($_POST['telefon']){
+                            $USUARIS[6] = $_POST['telefon'];
+                        }
+                    }
+                    $USUARISTEMP[] = $USUARIS;
+                }
+            }fclose($CLIENTS);
+            $FP = fopen("../../files/clients.csv", 'w');
+            foreach($USUARISTEMP as $USER){
+                fputcsv($FP, $USER);
+            }
+            fclose($FP);
+        }
+        ?>
+        <h3>L'usuari <?php echo $_POST['username'] ?> ha estat modificat correctament</h3>
+        <a href="../retornainici.php">Retornar a inici</a>
         <?php
-        $NOMUSUARI = $_POST['username'];
-        $NOM = $_POST['nom'];
-        $COGNOM = $_POST['cognom'];
-        $ADRECA = $_POST['adreca'];
-        $EMAIL = $_POST['email'];
-        $TELEFON = $_POST['telefon'];
-
-        $FILENAME = "../../files/clients.csv";
-        $FITXER = fopen($FILENAME, "a");
-        
-        $USUARI = new Client($NOMUSUARI,$NOM,$COGNOM,$ADRECA,$EMAIL,$TELEFON);
-        $LINIA = array($USUARI->getUserName(), $USUARI->getPassword(), $USUARI->getNom(), $USUARI->getCognom(), $USUARI->getAdreca(), $USUARI->getEmail(), $USUARI->getTelefon(),"false",0,0);
-        fputcsv($FITXER,$LINIA);
-        fclose($FITXER);
-
-
-        ?>
-        <div class="options-flex">
-            <div class="option-list">
-            <h3>L'usuari <?php echo $USUARI->getUserName()?> ha estat afegit correctament.</h3>
-            <ul>
-                <li><h3><strong>Resum:</strong></h3></li>
-                <li><strong>Nom Complet: </strong><?php echo "{$USUARI->getNom()} {$USUARI->getCognom()}"?></li>
-                <li><strong>Direcció: </strong><?php echo $USUARI->getAdreca() ?></li>
-                <li><strong>Direcció de Correu Electrònic: </strong><?php echo $USUARI->getEmail() ?></li>
-                <li><strong>Nª de telèfon: </strong><?php echo $USUARI->getTelefon() ?></li>
-                <?php
-        }else{
-            header("Location: ../../403.php");
-        } 
-        ?>
-        </main>
+    }else{
+        header("Location: ../../403.php");
+    } 
+?>
+</main>
