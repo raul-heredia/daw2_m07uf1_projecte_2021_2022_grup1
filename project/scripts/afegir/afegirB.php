@@ -30,7 +30,7 @@
             <li><a href="../../scripts/tancarsessio.php"><i class="fas fa-power-off"></i></a></li>
             <li><a class="disabled"><i class="fas fa-user"></i><?php echo $USERNAME?></a></li>
             <li><a class="disabled"><strong>Sessió: </strong><?php echo session_id()?></a></li>
-            <li><a href="../retornainici.ph"><i class="fas fa-arrow-left"></i></a></li>
+            <li><a href="../retornainici.php"><i class="fas fa-arrow-left"></i></a></li>
         </ul>
         </nav>
         <main>
@@ -49,10 +49,20 @@
         
         $FILENAME = "../../files/bibliotecaris.csv";
         $FITXER = fopen($FILENAME, "a");
-        $LINIA = array($NOMUSUARI,1234,$NOM,$COGNOM,$ADRECA,$EMAIL,$TELEFON,$NUMSS,$DATACON,$SALARI);
+        $LINIA = array($NOMUSUARI,1234,"false",$NOM,$COGNOM,$ADRECA,$EMAIL,$TELEFON,$NUMSS,$DATACON,$SALARI);
         fputcsv($FITXER,$LINIA);
         fclose($FITXER);
-
+        ?>
+        <div class="options-flex">
+        <div class="option-list">
+        <h3>L'usuari <?php echo $USUARI->getUserName()?> ha estat afegit correctament.</h3>
+        <ul>
+            <li><h3><strong>Resum:</strong></h3></li>
+            <li><strong>Nom Complet: </strong><?php echo "{$USUARI->getNom()} {$USUARI->getCognom()}"?></li>
+            <li><strong>Direcció: </strong><?php echo $USUARI->getAdreca() ?></li>
+            <li><strong>Direcció de Correu Electrònic: </strong><?php echo $USUARI->getEmail() ?></li>
+            <li><strong>Nª de telèfon: </strong><?php echo $USUARI->getTelefon() ?></li>
+        <?php
         }else{
             header("Location: ../../403.php");
         } 

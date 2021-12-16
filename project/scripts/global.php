@@ -18,8 +18,6 @@ class Usuari{
     }
 }
 class Client extends Usuari{
-    
-    
     public function __construct($USERNAME, $NOM, $COGNOM, $ADRECA, $EMAIL, $TELEFON){
         $this->USERNAME = $USERNAME;
         $this->NOM = $NOM;

@@ -32,7 +32,8 @@
     </nav>
     <div class="wrapper">
         <h2 class="title">Esborrar Bibliotecari</h2>
-        <form autocomplete="off">
+        <form autocomplete="off" action="../../scripts/eliminar/eliminarB.php" method="POST">
+            <input type="text" name="method" value="DELETE" class="hidden">
             <div class="field">
                 <input id="Username" name="username" type="text" required />
                 <label>Nom d'Usuari</label>

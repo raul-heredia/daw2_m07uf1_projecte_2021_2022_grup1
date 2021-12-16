@@ -36,7 +36,8 @@
     </nav>
     <div class="wrapper">
         <h2 class="title">Esborrar Llibre</h2>
-        <form autocomplete="off">
+        <form autocomplete="off" action="../../scripts/eliminar/eliminarL.php" method="POST">
+            <input type="text" name="method" value="DELETE" class="hidden">
             <div class="field">
                 <input id="isbn" name="isbn" type="text" required />
                 <label>ISBN</label>
