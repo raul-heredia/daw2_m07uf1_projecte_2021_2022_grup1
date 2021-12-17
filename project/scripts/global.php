@@ -17,7 +17,7 @@ class Usuari{
         $this->TELEFON = $TELEFON;
     }
 }
-class Client extends Usuari{
+class Client extends Usuari implements UserMethods{
     public function __construct($USERNAME, $PASSWORD, $NOM, $COGNOM, $ADRECA, $EMAIL, $TELEFON){
         parent::__construct($USERNAME, $PASSWORD, $NOM, $COGNOM, $ADRECA, $EMAIL, $TELEFON);
     }
@@ -44,7 +44,7 @@ class Client extends Usuari{
     }
 }
 
-class Treballador extends Usuari{
+class Treballador extends Usuari implements UserMethods{
     private $ISADMIN;
     private $NUMSS;
     private $DATACON;
@@ -91,7 +91,7 @@ class Treballador extends Usuari{
     }
 } 
 
-class Llibre{
+class Llibre {
     private $ISBN;
     private $TITOL;
     private $AUTOR;
@@ -111,4 +111,14 @@ class Llibre{
         return $this->AUTOR;
     }
     
+}
+
+interface UserMethods{
+    public function getUserName();
+    public function getPassword();
+    public function getNom();
+    public function getCognom();
+    public function getAdreca();
+    public function getEmail();
+    public function getTelefon();
 }
