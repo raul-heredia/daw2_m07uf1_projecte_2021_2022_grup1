@@ -40,10 +40,14 @@
     </ul>
     </nav>
     <main>
-    <form action="../dompdf/html2pdf.php" method="GET">
-            <input type="text" class="hidden" name="file" value="/scripts/llistar/llistarC.php">
-            <input type="submit" value="Genera PDF">
-    </form>
+    <div class="options-flex">
+        <div class="option-list">
+            <form action="../dompdf/html2pdf.php" method="GET">
+                <input type="text" class="hidden" name="file" value="/scripts/llistar/llistarC.php">
+                <input type="submit" value="Genera PDF">
+            </form>
+        </div>
+    </div>
     <table>
         <tr>
             <th colspan="7" id="colspan"><h2>Llista de clients de la biblioteca</h2></th>

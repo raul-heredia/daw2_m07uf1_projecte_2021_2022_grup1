@@ -270,3 +270,7 @@ strong{
   .hidden{
     display: none;
   }
+
+  #sendpdf{
+    margin: 0 auto;
+  }

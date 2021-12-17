@@ -28,30 +28,18 @@ if (isset($_SESSION['administrador'])) {
     </nav>
     <main>
         <h1>Benvingut/da <strong><?php echo $USER?></strong></h1>
-        <h1 class="option-title">Bibliotecaris</h1>
+        <h1 class="option-title">Prestecs</h1>
         <div class="options-flex">
-             <a href="./scripts/llistar/llistarB.php">
+        <a  href="./forms/llibre/prestar.php">
                 <div class="option">
-                    <i class="option-icon fas fa-users"></i>
-                    <p class="option-p">Visualitzar Bibliotecaris</p>
-            </div>
-            </a>
-            <a class="afegir" href="./forms/admin/afegirB.php">
-                <div class="option">
-                    <i class="option-icon fas fa-user-plus"></i>
-                    <p class="option-p">Afegir Bibliotecari</p>
+                    <i class="option-icon fas fa-book"></i>
+                    <p class="option-p">Prestar Llibre</p>
                 </div>
             </a>
-            <a class="modificar" href="./forms/admin/modificarB.php">
+            <a  href="./forms/llibre/retornar.php">
                 <div class="option">
-                    <i class="option-icon fas fa-user-edit"></i>
-                    <p class="option-p">Modificar Bibliotecari</p>
-                </div>
-            </a>
-            <a class="elimina" href="./forms/admin/esborraB.php">
-                <div class="option">
-                    <i class="option-icon fas fa-user-minus"></i>
-                    <p class="option-p">Eliminar Bibliotecari</p>
+                    <i class="option-icon fas fa-book"></i>
+                    <p class="option-p">Retornar Llibre</p>
                 </div>
             </a>
         </div>
@@ -82,18 +70,36 @@ if (isset($_SESSION['administrador'])) {
                 </div>
             </a>
         </div>
-        <h1 class="option-title">Prestecs</h1>
+        <h1 class="option-title">Bibliotecaris</h1>
         <div class="options-flex">
-        <a  href="./forms/llibre/prestar.php">
+             <a href="./scripts/llistar/llistarB.php">
                 <div class="option">
-                    <i class="option-icon fas fa-book"></i>
-                    <p class="option-p">Prestar Llibre</p>
+                    <i class="option-icon fas fa-users"></i>
+                    <p class="option-p">Visualitzar Bibliotecaris</p>
+            </div>
+            </a>
+            <a class="afegir" href="./forms/admin/afegirB.php">
+                <div class="option">
+                    <i class="option-icon fas fa-user-plus"></i>
+                    <p class="option-p">Afegir Bibliotecari</p>
                 </div>
             </a>
-            <a  href="./forms/llibre/retornar.php">
+            <a class="modificar" href="./forms/admin/modificarB.php">
                 <div class="option">
-                    <i class="option-icon fas fa-book"></i>
-                    <p class="option-p">Retornar Llibre</p>
+                    <i class="option-icon fas fa-user-edit"></i>
+                    <p class="option-p">Modificar Bibliotecari</p>
+                </div>
+            </a>
+            <a class="elimina" href="./forms/admin/esborraB.php">
+                <div class="option">
+                    <i class="option-icon fas fa-user-minus"></i>
+                    <p class="option-p">Eliminar Bibliotecari</p>
+                </div>
+            </a>
+            <a href="./scripts/llistar/bibliotecariD.php">
+                <div class="option">
+                    <i class="option-icon fas fa-user"></i>
+                    <p class="option-p">Les meves dades</p>
                 </div>
             </a>
         </div>

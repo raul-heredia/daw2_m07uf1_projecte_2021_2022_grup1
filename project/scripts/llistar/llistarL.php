@@ -1,15 +1,15 @@
 <?php
     include '/var/www/html/scripts/global.php';
-    $USER;
+    $USER = "TEST";
     session_start();
-    if (isset($_SESSION['bibliotecari'])) {
+    /* if (isset($_SESSION['bibliotecari'])) {
         $USERNAME = $_SESSION['bibliotecari'][0];
         $USER = $_SESSION['bibliotecari'][1];
     }
     if (isset($_SESSION['administrador'])) {
         $USERNAME = $_SESSION['administrador'][0];
         $USER = $_SESSION['administrador'][1];
-    }
+    } */
     if($USER){
         ?>
         <!DOCTYPE html>
@@ -40,10 +40,14 @@
             </ul>
             </nav>
             <main>
-            <form action="../dompdf/html2pdf.php" method="GET">
-                <input type="text" class="hidden" name="file" value="/scripts/llistar/llistarL.php">
-                <input type="submit" value="Genera PDF">
-            </form>
+            <div class="options-flex">
+                <div class="option-list">
+                    <form action="../dompdf/html2pdf.php" method="GET">
+                        <input type="text" class="hidden" name="file" value="/scripts/llistar/llistarL.php">
+                        <input type="submit" value="Genera PDF">
+                    </form>
+                </div>
+            </div>
             <table>
                 <tr>
                     <th colspan="5" id="colspan"><h2>Llista de llibres de la biblioteca</h2></th>
