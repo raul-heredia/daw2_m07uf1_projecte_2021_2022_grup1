@@ -42,7 +42,7 @@
                 <label>Nom d'Usuari</label>
             </div>
             <div class="field">
-                <input id="username" name="contrasenya" type="password" required />
+                <input id="contrasenya" name="contrasenya" type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-?]).{8,}$" required />
                 <label>Contrasenya</label>
             </div>
             <div class="field">
@@ -67,6 +67,10 @@
             <div class="field">
                 <input id="salari" name="salari" type="text" required />
                 <label>Salari</label>
+            </div>
+            <div class="field">
+                <input id="isadmin" name="isadmin" type="checkbox" />
+                <label>Es Administrador?</label>
             </div>
             <div class="field">
                 <input type="submit" value="Afegir" />

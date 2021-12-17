@@ -45,10 +45,15 @@
         $NUMSS = $_POST['numeross'];
         $DATACON = $_POST['datacon'];
         $SALARI = $_POST['salari'];
+        IF($_POST['isadmin']){
+            $ISADMIN = "true";
+        }else{
+            $ISADMIN = "false";
+        }
 
         $FILENAME = "../../files/bibliotecaris.csv";
         $FITXER = fopen($FILENAME, "a");
-        $BIBLIOTECARI = new Treballador($NOMUSUARI,$CONTRASENYA,$NOM,$COGNOM,$ADRECA,$EMAIL,$TELEFON,$NUMSS,$DATACON,$SALARI);
+        $BIBLIOTECARI = new Treballador($NOMUSUARI,$ISADMIN,$CONTRASENYA,$NOM,$COGNOM,$ADRECA,$EMAIL,$TELEFON,$NUMSS,$DATACON,$SALARI);
         $LINIA = array($BIBLIOTECARI->getUserName(), $BIBLIOTECARI->getPassword(), $BIBLIOTECARI->getIsAdmin() ,$BIBLIOTECARI->getNom(), $BIBLIOTECARI->getCognom(), $BIBLIOTECARI->getAdreca(), $BIBLIOTECARI->getEmail(), $BIBLIOTECARI->getTelefon(),$BIBLIOTECARI->getNumSS(),$BIBLIOTECARI->getDataCon(),$BIBLIOTECARI->getSalari());
         fputcsv($FITXER,$LINIA);
         fclose($FITXER);

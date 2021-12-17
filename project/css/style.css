@@ -183,7 +183,9 @@ strong{
     transform: scale(0.8);
   }
 
-
+  form .field input[type="checkbox"]{
+    margin-left: 100px;
+  }
 
   /*Flex Icons*/
   .options-flex {

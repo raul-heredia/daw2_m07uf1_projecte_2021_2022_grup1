@@ -49,8 +49,8 @@ class Treballador extends Usuari{
     private $NUMSS;
     private $DATACON;
     private $SALARI;
-    public function __construct($USERNAME, $PASSWORD, $NOM, $COGNOM, $ADRECA, $EMAIL, $TELEFON, $NUMSS, $DATACON, $SALARI){
-        $this->ISADMIN = "false";
+    public function __construct($USERNAME, $ISADMIN, $PASSWORD, $NOM, $COGNOM, $ADRECA, $EMAIL, $TELEFON, $NUMSS, $DATACON, $SALARI){
+        $this->ISADMIN = $ISADMIN;
         $this->NUMSS = $NUMSS;
         $this->DATACON = $DATACON;
         $this->SALARI = $SALARI;
