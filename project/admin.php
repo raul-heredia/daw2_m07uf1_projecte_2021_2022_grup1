@@ -82,7 +82,21 @@ if (isset($_SESSION['administrador'])) {
                 </div>
             </a>
         </div>
-
+        <h1 class="option-title">Prestecs</h1>
+        <div class="options-flex">
+        <a  href="./forms/llibre/prestar.php">
+                <div class="option">
+                    <i class="option-icon fas fa-book"></i>
+                    <p class="option-p">Prestar Llibre</p>
+                </div>
+            </a>
+            <a  href="./forms/llibre/retornar.php">
+                <div class="option">
+                    <i class="option-icon fas fa-book"></i>
+                    <p class="option-p">Retornar Llibre</p>
+                </div>
+            </a>
+        </div>
         <h1 class="option-title">Usuaris</h1>
         <div class="options-flex">
             <a href="./scripts/llistar/llistarC.php">

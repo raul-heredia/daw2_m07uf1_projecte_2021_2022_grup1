@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
                 integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <title>Eliminar Llibre</title>
+    <title>Retornar Llibre</title>
 </head>
 
 <body id="index">
@@ -43,7 +43,7 @@
                 <label>ISBN</label>
             </div>
             <div class="field">
-                <input type="submit" value="Prestar Llibre" />
+                <input type="submit" value="Retornar" />
             </div>
         </form>
     </div>
