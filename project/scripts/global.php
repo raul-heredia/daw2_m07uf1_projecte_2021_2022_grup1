@@ -92,5 +92,13 @@ class Treballador extends Usuari{
 }
 
 class Llibre{
-
+    public function __construct(){
+        /* $this->ISADMIN = $ISADMIN;
+        $this->NUMSS = $NUMSS;
+        $this->DATACON = $DATACON;
+        $this->SALARI = $SALARI; */
+    }
+    /* public function getUserName(){
+        return $this->USERNAME;
+    } */
 }
