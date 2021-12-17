@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
                 integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <title>Modificar Llibre</title>
+    <title>Eliminar Llibre</title>
 </head>
 
 <body id="index">
@@ -35,27 +35,19 @@
     </ul>
     </nav>
     <div class="wrapper">
-        <h2 class="title">Modificar Llibre</h2>
-        <form autocomplete="off" action="../../scripts/modificar/modificarL.php" method="POST">
+        <h2 class="title">Esborrar Llibre</h2>
+        <form autocomplete="off" action="../../scripts/prestec/prestar.php" method="POST">
             <input type="text" name="method" value="PUT" class="hidden">
             <div class="field">
                 <input id="isbn" name="isbn" type="text" required />
                 <label>ISBN</label>
             </div>
             <div class="field">
-                <input id="isbn" name="nouisbn" type="text" />
-                <label>Nou ISBN</label>
+                <input id="isbn" name="username" type="text" required />
+                <label>Nom d'Usuari</label>
             </div>
             <div class="field">
-                <input id="titol" name="titol" type="text" />
-                <label>Títol</label>
-            </div>
-            <div class="field">
-                <input id="autor" name="autor" type="text" />
-                <label>Autor</label>
-            </div>
-            <div class="field">
-                <input type="submit" value="Modficar" />
+                <input type="submit" value="Prestar Llibre" />
             </div>
         </form>
     </div>

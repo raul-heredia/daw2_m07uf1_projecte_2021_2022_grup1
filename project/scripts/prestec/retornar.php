@@ -43,44 +43,14 @@
         $ISBN = $_POST['isbn'];
         $TITOL = $_POST['titol'];
         $AUTOR = $_POST['autor'];
-        $LLIBRESTEMP = array();
-        if( $_POST["method"] == "PUT" ){
-            if (($LLIBRES = fopen("../../files/llibres.csv", "r")) !== FALSE) {
-                while (($LLIBRE = fgetcsv($LLIBRES, 1000, ",")) !== FALSE) {
-                        if($LLIBRE[0] == $_POST['isbn']){
-                            if($_POST['nouisbn']){
-                                $LLIBRE[0] = $_POST['nouisbn'];
-                            }
-                            if($_POST['titol']){
-                                $LLIBRE[1] = $_POST['titol'];
-                            }
-                            if($_POST['autor']){
-                                $LLIBRE[2] = $_POST['autor'];
-                            }
-                            $ISBN = $LLIBRE[0];
-                            $TITOL = $LLIBRE[1];
-                            $AUTOR = $LLIBRE[2];
-                        }
-                        $LLIBRESTEMP[] = $LLIBRE;
-                    }
-                }fclose($LLIBRES);
-                $FP = fopen("../../files/llibres.csv", 'w');
-                foreach($LLIBRESTEMP as $LLIBRE){
-                    fputcsv($FP, $LLIBRE);
-                }
-                fclose($FP);
-            }
-        ?>
-        <div class="options-flex">
-            <div class="option-list">
-            <h3>El llibre <?php echo $TITOL?> ha estat modificat correctament.</h3>
-            <ul>
-                <li><h3><strong>Resum</strong></h3></li>
-                <li><strong>ISBN: </strong><?php echo $ISBN?></li>
-                <li><strong>Titol: </strong><?php echo $TITOL?></li>
-                <li><strong>Autor: </strong><?php echo $AUTOR?></li>
+
+        $FILENAME = "../../files/llibres.csv";
+        $FITXER = fopen($FILENAME, "a");
+        $LINIA = array($ISBN,$TITOL,$AUTOR,"false",0,0);
         
-        <?php
+        fputcsv($FITXER,$LINIA);
+        fclose($FITXER);
+
         }else{
             header("Location: ../../403.php");
         } 

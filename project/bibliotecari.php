@@ -54,6 +54,18 @@ if (isset($_SESSION['bibliotecari'])) {
                     <p class="option-p">Eliminar Llibre</p>
                 </div>
             </a>
+            <a class="elimina" href="./forms/llibre/prestar.php">
+                <div class="option">
+                    <i class="option-icon fas fa-book"></i>
+                    <p class="option-p">Prestar Llibre</p>
+                </div>
+            </a>
+            <a class="elimina" href="./forms/llibre/retornar.php">
+                <div class="option">
+                    <i class="option-icon fas fa-book"></i>
+                    <p class="option-p">Retornar Llibre</p>
+                </div>
+            </a>
         </div>
         <h1 class="option-title">Usuaris</h1>
         <div class="options-flex">

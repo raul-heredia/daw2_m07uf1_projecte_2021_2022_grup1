@@ -57,7 +57,7 @@
         }
         ?>
         <h3>L'usuari <?php echo $_POST['username'] ?> ha estat esborrat correctament</h3>
-        <a href="../retornainici.php">Retornar a inici</a>
+        
         <?php
     }else{
         header("Location: ../../403.php");

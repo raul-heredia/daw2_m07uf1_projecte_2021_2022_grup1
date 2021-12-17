@@ -93,7 +93,7 @@
                 <li><strong>Direcció: </strong><?php echo $ADRECA ?></li>
                 <li><strong>Direcció de Correu Electrònic: </strong><?php echo $EMAIL ?></li>
                 <li><strong>Nª de telèfon: </strong><?php echo $TELEFON ?></li>
-        <a href="../retornainici.php">Retornar a inici</a>
+        
         <?php
     }else{
         header("Location: ../../403.php");

@@ -106,7 +106,7 @@
                 <li><strong>Nª de telèfon: </strong><?php echo $TELEFON ?></li>
                 <li><strong>Salari: </strong><?php echo $SALARI ?>€</li>
 
-        <a href="../retornainici.php">Retornar a inici</a>
+        
         <?php
     }else{
         header("Location: ../../403.php");
