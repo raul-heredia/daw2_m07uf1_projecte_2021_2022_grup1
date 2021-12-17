@@ -40,17 +40,47 @@
         </nav>
         <main>
         <?php
-        $ISBN = $_POST['isbn'];
-        $TITOL = $_POST['titol'];
-        $AUTOR = $_POST['autor'];
+        $TODAY = date('d-m-Y');
+        $USUARIPRESTEC = false;
 
-        $FILENAME = "../../files/llibres.csv";
-        $FITXER = fopen($FILENAME, "a");
-        $LINIA = array($ISBN,$TITOL,$AUTOR,"false",0,0);
-        
-        fputcsv($FITXER,$LINIA);
-        fclose($FITXER);
-
+        if( $_POST["method"] == "PUT" ){
+            if (($LLIBRES = fopen("../../files/llibres.csv", "r")) !== FALSE) {
+                    while (($LLIBRE = fgetcsv($LLIBRES, 1000, ",")) !== FALSE) {
+                            if($LLIBRE[0] == $_POST['isbn']){
+                                if($LLIBRE[3] == "true"){
+                                    $LLIBRE[3] = "false";
+                                    $LLIBRE[4] = 0;
+                                    $LLIBRE[5] = 0;
+                                }else{
+                                    echo "Error, el llibre no es trobava en préstec.";
+                                }
+                            }
+                            $LLIBRESTEMP[] = $LLIBRE;
+                        }
+                    }fclose($LLIBRES);
+                    $FP = fopen("../../files/llibres.csv", 'w');
+                    foreach($LLIBRESTEMP as $LLIBRE){
+                        fputcsv($FP, $LLIBRE);
+                    }
+                    fclose($FP);
+                    if (($CLIENTS = fopen("../../files/clients.csv", "r")) !== FALSE) {
+                        while (($USUARIS = fgetcsv($CLIENTS, 1000, ",")) !== FALSE) {
+                                if($USUARIS[8] == $_POST['isbn']){
+                                    if($USUARIS[7] == "true"){
+                                        $USUARIS[7] = "false";
+                                        $USUARIS[8] = 0;
+                                        $USUARIS[9] = 0;
+                                    }
+                                }
+                                $USUARISTEMP[] = $USUARIS;
+                            }
+                        }fclose($CLIENTS);
+                        $FP = fopen("../../files/clients.csv", 'w');
+                        foreach($USUARISTEMP as $USER){
+                            fputcsv($FP, $USER);
+                        }
+                        fclose($FP);
+            }
         }else{
             header("Location: ../../403.php");
         } 

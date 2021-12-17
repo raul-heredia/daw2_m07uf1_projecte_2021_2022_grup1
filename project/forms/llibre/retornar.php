@@ -35,16 +35,12 @@
     </ul>
     </nav>
     <div class="wrapper">
-        <h2 class="title">Prestar Llibre</h2>
-        <form autocomplete="off" action="../../scripts/prestec/prestar.php" method="POST">
+        <h2 class="title">Retornar Llibre</h2>
+        <form autocomplete="off" action="../../scripts/prestec/retornar.php" method="POST">
             <input type="text" name="method" value="PUT" class="hidden">
             <div class="field">
                 <input id="isbn" name="isbn" type="text" required />
                 <label>ISBN</label>
-            </div>
-            <div class="field">
-                <input id="isbn" name="username" type="text" required />
-                <label>Nom d'Usuari</label>
             </div>
             <div class="field">
                 <input type="submit" value="Prestar Llibre" />
