@@ -62,7 +62,7 @@
         <div class="option-list">
         <h3>El Bibliotecari <?php echo $BIBLIOTECARI->getUserName()?> ha estat afegit correctament.</h3>
         <ul>
-            <li><h3><strong>Resum:</strong></h3></li>
+            <li><h3><strong>Resum</strong></h3></li>
             <li><strong>Nom Complet: </strong><?php echo "{$BIBLIOTECARI->getNom()} {$BIBLIOTECARI->getCognom()}"?></li>
             <li><strong>Direcció: </strong><?php echo $BIBLIOTECARI->getAdreca() ?></li>
             <li><strong>Direcció de Correu Electrònic: </strong><?php echo $BIBLIOTECARI->getEmail() ?></li>

@@ -63,7 +63,7 @@
             <div class="option-list">
             <h3>L'usuari <?php echo $USUARI->getUserName()?> ha estat afegit correctament.</h3>
             <ul>
-                <li><h3><strong>Resum:</strong></h3></li>
+                <li><h3><strong>Resum</strong></h3></li>
                 <li><strong>Nom Complet: </strong><?php echo "{$USUARI->getNom()} {$USUARI->getCognom()}"?></li>
                 <li><strong>Direcció: </strong><?php echo $USUARI->getAdreca() ?></li>
                 <li><strong>Direcció de Correu Electrònic: </strong><?php echo $USUARI->getEmail() ?></li>

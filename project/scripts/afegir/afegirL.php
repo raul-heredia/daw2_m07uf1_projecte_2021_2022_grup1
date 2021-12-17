@@ -46,20 +46,21 @@
 
         $FILENAME = "../../files/llibres.csv";
         $FITXER = fopen($FILENAME, "a");
-        $LINIA = array($ISBN,$TITOL,$AUTOR,"false",0,0);
+        $LLIBRE = new Llibre($ISBN, $TITOL, $AUTOR);
+        $LINIA = array($LLIBRE->getISBN(), $LLIBRE->getTitol(),$LLIBRE->getAutor(),"false",0,0);
         
         fputcsv($FITXER,$LINIA);
         fclose($FITXER);
         ?>
         <div class="options-flex">
         <div class="option-list">
-        <h3>L'usuari <?php echo $USUARI->getUserName()?> ha estat afegit correctament.</h3>
+        <h3>El Llibre <?php echo $LLIBRE->getTitol()?> ha estat afegit correctament.</h3>
         <ul>
-            <li><h3><strong>Resum:</strong></h3></li>
-            <li><strong>Nom Complet: </strong><?php echo "{$USUARI->getNom()} {$USUARI->getCognom()}"?></li>
-            <li><strong>Direcció: </strong><?php echo $USUARI->getAdreca() ?></li>
-            <li><strong>Direcció de Correu Electrònic: </strong><?php echo $USUARI->getEmail() ?></li>
-            <li><strong>Nª de telèfon: </strong><?php echo $USUARI->getTelefon() ?></li>
+            <li><h3><strong>Resum</strong></h3></li>
+            <li><strong>ISBN: </strong><?php echo $LLIBRE->getISBN()?></li>
+            <li><strong>Títol: </strong><?php echo $LLIBRE->getTitol()?></li>
+            <li><strong>Autor: </strong><?php echo $LLIBRE->getAutor()?></li>
+            
         <?php
         }else{
             header("Location: ../../403.php");

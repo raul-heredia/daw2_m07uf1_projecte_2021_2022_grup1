@@ -45,7 +45,7 @@ class Client extends Usuari{
 }
 
 class Treballador extends Usuari{
-    PRIVATE $ISADMIN;
+    private $ISADMIN;
     private $NUMSS;
     private $DATACON;
     private $SALARI;
@@ -89,16 +89,26 @@ class Treballador extends Usuari{
     public function getSalari(){
         return $this->SALARI;
     }
-}
+} 
 
 class Llibre{
-    public function __construct(){
-        /* $this->ISADMIN = $ISADMIN;
-        $this->NUMSS = $NUMSS;
-        $this->DATACON = $DATACON;
-        $this->SALARI = $SALARI; */
+    private $ISBN;
+    private $TITOL;
+    private $AUTOR;
+    public function __construct($ISBN, $TITOL, $AUTOR){
+
+        $this->ISBN = $ISBN;
+        $this->TITOL = $TITOL;
+        $this->AUTOR = $AUTOR;
     }
-    /* public function getUserName(){
-        return $this->USERNAME;
-    } */
+    public function getISBN(){
+        return $this->ISBN;
+    }
+    public function getTitol(){
+        return $this->TITOL;
+    }
+    public function getAutor(){
+        return $this->AUTOR;
+    }
+    
 }

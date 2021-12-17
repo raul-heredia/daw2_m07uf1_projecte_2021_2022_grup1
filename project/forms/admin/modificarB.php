@@ -28,18 +28,51 @@
     </ul>
     </nav>
     <div class="wrapper">
-        <h2 class="title">Esborrar Bibliotecari</h2>
-        <form autocomplete="off">
-            <div class="field">
+        <h2 class="title">Modificar Bibliotecari</h2>
+        <form autocomplete="off" action="../../scripts/modificar/modificarB.php" method="POST">
+        <input type="text" name="method" value="PUT" class="hidden">
+        <div class="field">
                 <input id="Username" name="username" type="text" required />
                 <label>Nom d'Usuari</label>
             </div>
             <div class="field">
-                <input id="numeross" name="numeross" type="text" required />
-                <label>Nª Seguretat Social</label>
+                <input id="Username" name="newusername" type="text" />
+                <label>Nou nom d'Usuari</label>
             </div>
             <div class="field">
-                <input type="submit" value="Esborra" />
+                <input id="nom" name="nom" type="text" />
+                <label>Nom</label>
+            </div>
+            <div class="field">
+                <input id="cognoms" name="cognom" type="text" />
+                <label>Cognoms</label>
+            </div>
+            <div class="field">
+                <input id="adreca" name="adreca" type="text" />
+                <label>Adreça</label>
+            </div>
+            <div class="field">
+                <input id="email" name="email" type="text" />
+                <label>Correu Electrònic</label>
+            </div>
+            <div class="field">
+                <input id="telefon" name="telefon" type="text" />
+                <label>Telèfon</label>
+            </div>
+            <div class="field">
+                <input id="salari" name="salari" type="text" />
+                <label>Salari</label>
+            </div>
+            <div class="field">
+                <input id="telefon" name="contrasenya" type="password"/>
+                <label>Contrasenya</label>
+            </div>
+            <div class="field">
+                <input id="isadmin" name="isadmin" type="checkbox" />
+                <label>Es Administrador?</label>
+            </div>
+            <div class="field">
+                <input type="submit" value="Modificar" />
             </div>
         </form>
     </div>

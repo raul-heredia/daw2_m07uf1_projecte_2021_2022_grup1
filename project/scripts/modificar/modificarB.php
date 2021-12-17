@@ -40,31 +40,53 @@
     </nav>
     <main>
     <?php
-    $USUARISTEMP = array();
+    $BIBLIOTECARISTEMP = array();
     if( $_POST["method"] == "PUT" ){
         if (($TREBALLADORS = fopen("../../files/bibliotecaris.csv", "r")) !== FALSE) {
             while (($BIBLIOTECARIS = fgetcsv($TREBALLADORS, 1000, ",")) !== FALSE) {
                     if($BIBLIOTECARIS[0] == $_POST['username']){
-                        if($_POST['nom']){
-                            $BIBLIOTECARIS[2] = $_POST['nom'];
+                        if($_POST['newusername']){
+                            $BIBLIOTECARIS[0] = $_POST['newusername'];
                         }
-                        if($_POST['cognoms']){
-                            $BIBLIOTECARIS[3] = $_POST['cognom'];
+                        if($_POST['nom']){
+                            $BIBLIOTECARIS[3] = $_POST['nom'];
+                        }
+                        if($_POST['contrasenya']){
+                            $BIBLIOTECARIS[1] = $_POST['contrasenya'];
+                        }
+                        if($_POST['cognom']){
+                            $BIBLIOTECARIS[4] = $_POST['cognom'];
                         }
                         if($_POST['adreca']){
-                            $BIBLIOTECARIS[4] = $_POST['adreca'];
+                            $BIBLIOTECARIS[5] = $_POST['adreca'];
                         }
                         if($_POST['email']){
-                            $BIBLIOTECARIS[5] = $_POST['email'];
+                            $BIBLIOTECARIS[6] = $_POST['email'];
                         }
                         if($_POST['telefon']){
-                            $BIBLIOTECARIS[6] = $_POST['telefon'];
+                            $BIBLIOTECARIS[7] = $_POST['telefon'];
                         }
-                        
+                        if($_POST['salari']){
+                            $BIBLIOTECARIS[10] = $_POST['salari'];
+                        }
+                        if($_POST['isadmin']){
+                            $BIBLIOTECARIS[2] = "true";
+                          
+                        }else{
+                            $BIBLIOTECARIS[2] = "false";
+                        }
+                        $NOMUSUARI = $BIBLIOTECARIS[0];
+                        $ISADMIN = $BIBLIOTECARIS[2];
+                        $NOM = $BIBLIOTECARIS[3];
+                        $COGNOMS = $BIBLIOTECARIS[4];
+                        $ADRECA = $BIBLIOTECARIS[5];
+                        $EMAIL = $BIBLIOTECARIS[6];
+                        $TELEFON = $BIBLIOTECARIS[7];
+                        $SALARI = $BIBLIOTECARIS[10];
                     }
                     $BIBLIOTECARISTEMP[] = $BIBLIOTECARIS;
                 }
-            }fclose($CLIENTS);
+            }fclose($TREBALLADORS);
             $FP = fopen("../../files/bibliotecaris.csv", 'w');
             foreach($BIBLIOTECARISTEMP as $BIBLIOTECARI){
                 fputcsv($FP, $BIBLIOTECARI);
@@ -74,13 +96,16 @@
         ?>
         <div class="options-flex">
             <div class="option-list">
-            <h3>L'usuari <?php echo $USUARI->getUserName()?> ha estat afegit correctament.</h3>
+            <h3>L'usuari <?php echo $_POST['username']?> ha estat modificat correctament.</h3>
             <ul>
-                <li><h3><strong>Resum:</strong></h3></li>
-                <li><strong>Nom Complet: </strong><?php echo "{$USUARI->getNom()} {$USUARI->getCognom()}"?></li>
-                <li><strong>Direcció: </strong><?php echo $USUARI->getAdreca() ?></li>
-                <li><strong>Direcció de Correu Electrònic: </strong><?php echo $USUARI->getEmail() ?></li>
-                <li><strong>Nª de telèfon: </strong><?php echo $USUARI->getTelefon() ?></li>
+                <li><h3><strong>Resum</strong></h3></li>
+                <li><strong>Nom d'Usuari: </strong><?php echo "$NOMUSUARI"?></li>
+                <li><strong>Nom Complet: </strong><?php echo "$NOM $COGNOMS" ?></li>
+                <li><strong>Direcció: </strong><?php echo $ADRECA ?></li>
+                <li><strong>Direcció de Correu Electrònic: </strong><?php echo $EMAIL?></li>
+                <li><strong>Nª de telèfon: </strong><?php echo $TELEFON ?></li>
+                <li><strong>Salari: </strong><?php echo $SALARI ?>€</li>
+
         <a href="../retornainici.php">Retornar a inici</a>
         <?php
     }else{
