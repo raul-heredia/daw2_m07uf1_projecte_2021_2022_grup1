@@ -50,6 +50,10 @@
                 <label>Nom d'Usuari</label>
             </div>
             <div class="field">
+                <input id="username" name="contrasenya" type="password" required />
+                <label>Contrasenya</label>
+            </div>
+            <div class="field">
                 <input id="adreca" name="adreca" type="text" required />
                 <label>Adreça</label>
             </div>

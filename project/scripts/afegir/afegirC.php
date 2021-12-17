@@ -42,16 +42,17 @@
             <main>
         <?php
         $NOMUSUARI = $_POST['username'];
+        $CONTRASENYA = $_POST['contrasenya'];
         $NOM = $_POST['nom'];
         $COGNOM = $_POST['cognom'];
         $ADRECA = $_POST['adreca'];
         $EMAIL = $_POST['email'];
         $TELEFON = $_POST['telefon'];
-
+        
         $FILENAME = "../../files/clients.csv";
         $FITXER = fopen($FILENAME, "a");
         
-        $USUARI = new Client($NOMUSUARI,$NOM,$COGNOM,$ADRECA,$EMAIL,$TELEFON);
+        $USUARI = new Client($NOMUSUARI,$CONTRASENYA,$NOM,$COGNOM,$ADRECA,$EMAIL,$TELEFON);
         $LINIA = array($USUARI->getUserName(), $USUARI->getPassword(), $USUARI->getNom(), $USUARI->getCognom(), $USUARI->getAdreca(), $USUARI->getEmail(), $USUARI->getTelefon(),"false",0,0);
         fputcsv($FITXER,$LINIA);
         fclose($FITXER);

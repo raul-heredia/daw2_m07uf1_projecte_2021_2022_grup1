@@ -45,10 +45,16 @@
         if (($CLIENTS = fopen("../../files/clients.csv", "r")) !== FALSE) {
             while (($USUARIS = fgetcsv($CLIENTS, 1000, ",")) !== FALSE) {
                     if($USUARIS[0] == $_POST['username']){
+                        if($_POST['newusername']){
+                            $USUARIS[0] = $_POST['newusername'];
+                        }
                         if($_POST['nom']){
                             $USUARIS[2] = $_POST['nom'];
                         }
-                        if($_POST['cognoms']){
+                        if($_POST['contrasenya']){
+                            $USUARIS[1] = $_POST['contrasenya'];
+                        }
+                        if($_POST['cognom']){
                             $USUARIS[3] = $_POST['cognom'];
                         }
                         if($_POST['adreca']){
@@ -60,6 +66,12 @@
                         if($_POST['telefon']){
                             $USUARIS[6] = $_POST['telefon'];
                         }
+                        $NOMUSUARI = $USUARIS[0];
+                        $NOM = $USUARIS[2];
+                        $COGNOMS = $USUARIS[3];
+                        $ADRECA = $USUARIS[4];
+                        $EMAIL = $USUARIS[5];
+                        $TELEFON = $USUARIS[6];
                     }
                     $USUARISTEMP[] = $USUARIS;
                 }
@@ -71,7 +83,16 @@
             fclose($FP);
         }
         ?>
-        <h3>L'usuari <?php echo $_POST['username'] ?> ha estat modificat correctament</h3>
+        <div class="options-flex">
+            <div class="option-list">
+            <h3>L'usuari <?php echo $_POST['username']?> ha estat modificat correctament.</h3>
+            <ul>
+                <li><h3><strong>Resum:</strong></h3></li>
+                <li><strong>Nom d'usuari: </strong><?php echo "$NOMUSUARI"?></li>
+                <li><strong>Nom Complet: </strong><?php echo "$NOM $COGNOMS"?></li>
+                <li><strong>Direcció: </strong><?php echo $ADRECA ?></li>
+                <li><strong>Direcció de Correu Electrònic: </strong><?php echo $EMAIL ?></li>
+                <li><strong>Nª de telèfon: </strong><?php echo $TELEFON ?></li>
         <a href="../retornainici.php">Retornar a inici</a>
         <?php
     }else{

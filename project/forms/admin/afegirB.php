@@ -29,10 +29,6 @@
     <div class="wrapper">
         <h2 class="title">Afegir Bibliotecari</h2>
         <form autocomplete="off" action="../../scripts/afegir/afegirB.php" method="POST">
-        <div class="field">
-                <input id="username" name="username" type="text" required />
-                <label>Nom d'Usuari</label>
-            </div>
             <div class="field">
                 <input id="nom" name="nom" type="text" required />
                 <label>Nom</label>
@@ -40,6 +36,14 @@
             <div class="field">
                 <input id="cognoms" name="cognom" type="text" required />
                 <label>Cognoms</label>
+            </div>
+            <div class="field">
+                <input id="username" name="username" type="text" required />
+                <label>Nom d'Usuari</label>
+            </div>
+            <div class="field">
+                <input id="username" name="contrasenya" type="password" required />
+                <label>Contrasenya</label>
             </div>
             <div class="field">
                 <input id="adreca" name="adreca" type="text" required />

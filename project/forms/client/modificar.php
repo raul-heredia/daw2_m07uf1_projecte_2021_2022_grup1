@@ -43,6 +43,10 @@
                 <label>Nom d'Usuari</label>
             </div>
             <div class="field">
+                <input id="Username" name="newusername" type="text" />
+                <label>Nou nom d'Usuari</label>
+            </div>
+            <div class="field">
                 <input id="nom" name="nom" type="text" />
                 <label>Nom</label>
             </div>
@@ -63,7 +67,11 @@
                 <label>Telèfon</label>
             </div>
             <div class="field">
-                <input type="submit" value="Esborra" />
+                <input id="telefon" name="contrasenya" type="password" pattern="^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#$%^&*_=+-]).{8,}$"/>
+                <label>Contrasenya</label>
+            </div>
+            <div class="field">
+                <input type="submit" value="Modificar Usuari" />
             </div>
         </form>
     </div>
