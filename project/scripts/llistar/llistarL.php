@@ -1,15 +1,15 @@
 <?php
     include '/var/www/html/scripts/global.php';
-    $USER = "TEST";
+    $USER;
     session_start();
-    /* if (isset($_SESSION['bibliotecari'])) {
+    if (isset($_SESSION['bibliotecari'])) {
         $USERNAME = $_SESSION['bibliotecari'][0];
         $USER = $_SESSION['bibliotecari'][1];
     }
     if (isset($_SESSION['administrador'])) {
         $USERNAME = $_SESSION['administrador'][0];
         $USER = $_SESSION['administrador'][1];
-    } */
+    }
     if($USER){
         ?>
         <!DOCTYPE html>
@@ -29,7 +29,6 @@
                 ?>
             </style>
         </head>
-
         <body>
             <nav>
             <ul>
@@ -40,49 +39,52 @@
             </ul>
             </nav>
             <main>
-            <div class="options-flex">
-                <div class="option-list">
-                    <form action="../dompdf/html2pdf.php" method="GET">
-                        <input type="text" class="hidden" name="file" value="/scripts/llistar/llistarL.php">
-                        <input type="submit" value="Genera PDF">
-                    </form>
-                </div>
-            </div>
-            <table>
+                
+            <?php
+                $TAULA = "<table>
                 <tr>
-                    <th colspan="5" id="colspan"><h2>Llista de llibres de la biblioteca</h2></th>
+                    <th colspan=\"5\" id=\"colspan\"><h2>Llista de llibres de la biblioteca</h2></th>
                 <tr>
                     <th>ISBN Del Llibre</th>
                     <th>Nom Del Llibre</th>
                     <th>Autor</th>
                     <th>Data d'Inici del prèstec</th>
                     <th>Usuari del prèstec</th>
-                </tr>
-        <?php
+                </tr>";
+        
         if (($LLIBRES = fopen("../../files/llibres.csv", "r")) !== FALSE) {
             while (($LLIBRE = fgetcsv($LLIBRES, 1000, ",")) !== FALSE) {
-                ?>
-                <tr>
-                    <td><?php echo $LLIBRE[0] ?></td>
-                    <td><?php echo $LLIBRE[1] ?></td>
-                    <td><?php echo $LLIBRE[2]?></td>
-                    <?php
+                $TAULA .= "<tr>
+                    <td> $LLIBRE[0] </td>
+                    <td> $LLIBRE[1] </td>
+                    <td> $LLIBRE[2]</td>";
                         if($LLIBRE[3] == "false"){
-                            ?>
-                            <td><i class="fas fa-times"></i></td>
-                            <td><i class="fas fa-times"></i></td>
-                            <?php
+                            $TAULA.= "<td></td>
+                            <td></td>";
+                            
                         }else if($LLIBRE[3] == "true"){
-                            ?>
-                            <td><?php echo $LLIBRE[4]?></td>
-                            <td><?php echo $LLIBRE[5]?></td>
-                            <?php
-                        }?>
-                </tr>
-                </main>
-                <?php
+                            $TAULA.= "<td> $LLIBRE[4]</td>
+                            <td> $LLIBRE[5]</td></tr>";
+                            
+                        }
             }
             fclose($LLIBRES);
+            $TAULA .= "</table>";
+            echo $TAULA;
+            $TAULAPDF = base64_encode(gzcompress($TAULA,9));
+            ?>
+            <div class="options-flex">
+                <div class="option-list">
+                <?php
+                echo "<form action='../dompdf/html2pdf.php' method='POST'>
+                        <input type='text' class='hidden' name='file' value='$TAULAPDF'>
+                        <input type='submit' id='pdf' value='Generar PDF'>
+                    </form>";
+                    ?>
+                </div>
+            </div>
+        </main>
+            <?php
         }
     }else{
         header("Location: ../../403.php");

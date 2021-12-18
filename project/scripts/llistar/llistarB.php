@@ -33,20 +33,13 @@
     </ul>
     </nav>
     <main>
-        <div class="options-flex">
-            <div class="option-list">
-                <form action="../dompdf/html2pdf.php" method="GET">
-                    <input type="text" class="hidden" name="file" value="/scripts/llistar/llistarB.php">
-                    <input type="submit" id="sendpdf" value="Genera PDF">
-                </form>
-            </div>
-        </div>
-    <table>
+        <?php
+        $TAULA = '<table>
         <tr>
             <th colspan="9" id="colspan"><h2>Llista de treballadors de la biblioteca</h2></th>
         <tr>
             <th>Admin</th>
-            <th>Nom d'Usuari</th>
+            <th>Nom d\'Usuari</th>
             <th>Nom Complet</th>
             <th>Direcció</th>
             <th>Correu Electrònic</th>
@@ -54,36 +47,43 @@
             <th>Nº Seguretat Social</th>
             <th>Data de Contractació</th>
             <th>Salari</th>
-        </tr>
-<?php
+        </tr>';
+
 if (($TREBALLADORS = fopen("../../files/bibliotecaris.csv", "r")) !== FALSE) {
     while (($BIBLIOTECARIS = fgetcsv($TREBALLADORS, 1000, ",")) !== FALSE) {
-        ?>
-        <tr>
-            <?php
+        
+        $TAULA .= "<tr>";
                 if($BIBLIOTECARIS[2] == "false"){
-                    ?>
-                    <td><i class="fas fa-times"></i></td>
-                    <?php
+                    $TAULA .= "<td></td>";
                 }else if($BIBLIOTECARIS[2] == "true"){
-                    ?>
-                    <td><i class="fas fa-check"></i></td>
-                    <?php
-                }?>
-            <td><?php echo $BIBLIOTECARIS[0] ?></td>
-            <td><?php echo "$BIBLIOTECARIS[3] $BIBLIOTECARIS[4]" ?></td>
-            <td><?php echo $BIBLIOTECARIS[5]?></td>
-            <td><?php echo $BIBLIOTECARIS[6]?></td>
-            <td><?php echo $BIBLIOTECARIS[7]?></td>
-            <td><?php echo $BIBLIOTECARIS[8]?></td>
-            <td><?php echo $BIBLIOTECARIS[9]?></td>
-            <td><?php echo $BIBLIOTECARIS[10]?>€</td>
-        </tr>
-        </main>
-        <?php
+                    $TAULA .= "<td>Sí</td>";
+                }
+                $TAULA .= "<td>$BIBLIOTECARIS[0]</td>
+                <td>$BIBLIOTECARIS[3] $BIBLIOTECARIS[4]</td>
+                <td>$BIBLIOTECARIS[5]</td>
+                <td>$BIBLIOTECARIS[6]</td>
+                <td>$BIBLIOTECARIS[7]</td>
+                <td>$BIBLIOTECARIS[8]</td>
+                <td>$BIBLIOTECARIS[9]</td>
+                <td>$BIBLIOTECARIS[10]€</td></tr>";
     }
     fclose($TREBALLADORS);
 }
+            $TAULA .= "</table>";
+            echo $TAULA;
+            $TAULAPDF = base64_encode(gzcompress($TAULA,9));
+            ?>
+            <div class="options-flex">
+                <div class="option-list">
+                <?php
+                echo "<form action='../dompdf/html2pdf.php' method='POST'>
+                        <input type='text' class='hidden' name='file' value='$TAULAPDF'>
+                        <input type='submit' id='pdf' value='Generar PDF'>
+                    </form>";?>
+                    </div>
+                </div>
+            </main>
+            <?php   
 }else{
     header("Location: ../../403.php");
 } 

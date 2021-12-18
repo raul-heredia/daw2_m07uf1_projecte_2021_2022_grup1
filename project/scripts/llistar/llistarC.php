@@ -40,53 +40,52 @@
     </ul>
     </nav>
     <main>
-    <div class="options-flex">
-        <div class="option-list">
-            <form action="../dompdf/html2pdf.php" method="GET">
-                <input type="text" class="hidden" name="file" value="/scripts/llistar/llistarC.php">
-                <input type="submit" value="Genera PDF">
-            </form>
-        </div>
-    </div>
-    <table>
+    <?php
+    $TAULA = '<table>
         <tr>
             <th colspan="7" id="colspan"><h2>Llista de clients de la biblioteca</h2></th>
         <tr>
-            <th>Nom d'usuari</th>
+            <th>Nom d\'usuari</th>
             <th>Nom Complet</th>
             <th>Direcció</th>
             <th>Correu Electrònic</th>
             <th>Telèfon</th>
             <th>ISBN Llibre en prestec</th>
-            <th>Data d'inici prèstec</th>
-        </tr>
-<?php
+            <th>Data d\'inici prèstec</th>
+        </tr>';
+
 if (($CLIENTS = fopen("../../files/clients.csv", "r")) !== FALSE) {
     while (($USUARIS = fgetcsv($CLIENTS, 1000, ",")) !== FALSE) {
-        ?>
-        <tr>
-            <td><?php echo $USUARIS[0] ?></td>
-            <td><?php echo "$USUARIS[2] $USUARIS[3]" ?></td>
-            <td><?php echo $USUARIS[4]?></td>
-            <td><?php echo $USUARIS[5]?></td>
-            <td><?php echo $USUARIS[6]?></td>
-            <?php
+        $TAULA .= "<tr>
+            <td>$USUARIS[0] </td>
+            <td>$USUARIS[2] $USUARIS[3] </td>
+            <td>$USUARIS[4]</td>
+            <td>$USUARIS[5]</td>
+            <td>$USUARIS[6]</td>";
                 if($USUARIS[7] == "false"){
-                    ?>
-                    <td><i class="fas fa-times"></i></td>
-                    <td><i class="fas fa-times"></i></td>
-                    <?php
+                    $TAULA .= "<td></td><td></td>";
                 }else if($USUARIS[7] == "true"){
-                    ?>
-                    <td><?php echo $USUARIS[8]?></td>
-                    <td><?php echo $USUARIS[9]?></td>
-                    <?php
-                }?>
-        </tr>
-        <?php
+                    $TAULA .= "<td>$USUARIS[8]</td><td>$USUARIS[9]</td></tr>";
+                }
     }
     fclose($CLIENTS);
 }
+        $TAULA .= "</table>";
+        echo $TAULA;
+        $TAULAPDF = base64_encode(gzcompress($TAULA,9));
+        ?>
+        <div class="options-flex">
+            <div class="option-list">
+            <?php
+            echo "<form action='../dompdf/html2pdf.php' method='POST'>
+                    <input type='text' class='hidden' name='file' value='$TAULAPDF'>
+                    <input type='submit' id='pdf' value='Generar PDF'>
+                </form>";
+                ?>
+            </div>
+        </div>
+    </main>
+    <?php
     }else{
         header("Location: ../../403.php");
     } 
