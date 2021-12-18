@@ -77,6 +77,7 @@
                 <div class="option-list">
                 <?php
                 echo "<form action='../dompdf/html2pdf.php' method='POST'>
+                        <input type='text' class='hidden' name='filename' value='llistallibres'>
                         <input type='text' class='hidden' name='file' value='$TAULAPDF'>
                         <input type='submit' id='pdf' value='Generar PDF'>
                     </form>";
