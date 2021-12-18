@@ -42,33 +42,33 @@
         <?php
         $TODAY = date('d-m-Y');
         $USUARIPRESTEC = false;
-        $NOEXISTEIX = false;
-
+        $NOEXISTEIX = true;
         if( $_POST["method"] == "PUT" ){
             if (($CLIENTS = fopen("../../files/clients.csv", "r")) !== FALSE) {
                 while (($USUARIS = fgetcsv($CLIENTS, 1000, ",")) !== FALSE) {
                         if($USUARIS[0] == $_POST['username']){
+                            $NOEXISTEIX = false;
                             if($USUARIS[7] == "true"){
                                 $USUARIPRESTEC = true;
                             }
-                        }else{
-                            $NOEXISTEIX = true;
                         }
                     }
                 }fclose($CLIENTS);
+                
             if (($LLIBRES = fopen("../../files/llibres.csv", "r")) !== FALSE) {
                     while (($LLIBRE = fgetcsv($LLIBRES, 1000, ",")) !== FALSE) {
                             if($LLIBRE[0] == $_POST['isbn']){
-                                if($LLIBRE[3] != "true" && !$USUARIPRESTEC && !$NOEXISTEIX){
-                                    $LLIBRE[3] = "true";
-                                    $LLIBRE[4] = $TODAY;
-                                    $LLIBRE[5] = $_POST['username'];
-                                }else{
-                                    $ISPRESTAT = true;
+                                if($LLIBRE[3] != "true"){ 
+                                    if(!$USUARIPRESTEC && !$NOEXISTEIX){
+                                        $LLIBRE[3] = "true";
+                                        $LLIBRE[4] = $TODAY;
+                                        $LLIBRE[5] = $_POST['username'];
                                 }
+                            }else{
+                                $ISPRESTAT = true;
                             }
-                            $LLIBRESTEMP[] = $LLIBRE;
                         }
+                        $LLIBRESTEMP[] = $LLIBRE;
                     }fclose($LLIBRES);
                     $FP = fopen("../../files/llibres.csv", 'w');
                     foreach($LLIBRESTEMP as $LLIBRE){
@@ -83,6 +83,7 @@
                                         $USUARIS[8] = $_POST['isbn'];
                                         $USUARIS[9] = $TODAY;
                                     }else{
+                                        echo "$NOEXISTEIX";
                                         echo "Error, comprova que l'usuari existeixi, que no tingui cap llibre en préstec i/o que el llibre seleccionat no es trobi en préstec";
                                     }
                                 }
@@ -95,6 +96,7 @@
                         }
                         fclose($FP);
             }
+        }
         }else{
             header("Location: ../../403.php");
         } 
