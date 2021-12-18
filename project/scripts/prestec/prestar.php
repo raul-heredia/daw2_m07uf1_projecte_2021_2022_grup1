@@ -50,9 +50,9 @@
                         if($USUARIS[0] == $_POST['username']){
                             if($USUARIS[7] == "true"){
                                 $USUARIPRESTEC = true;
-                            }else{
-                                $NOEXISTEIX = true;
                             }
+                        }else{
+                            $NOEXISTEIX = true;
                         }
                     }
                 }fclose($CLIENTS);
