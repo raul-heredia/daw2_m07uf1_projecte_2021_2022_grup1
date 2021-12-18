@@ -41,18 +41,18 @@
         <main>
         <?php
         $TODAY = date('d-m-Y');
-        $USUARIPRESTEC = false;
-
+        $LNOEXISTEIX = true;
         if( $_POST["method"] == "PUT" ){
             if (($LLIBRES = fopen("../../files/llibres.csv", "r")) !== FALSE) {
                     while (($LLIBRE = fgetcsv($LLIBRES, 1000, ",")) !== FALSE) {
                             if($LLIBRE[0] == $_POST['isbn']){
+                                $LNOEXISTEIX = false;
                                 if($LLIBRE[3] == "true"){
                                     $LLIBRE[3] = "false";
                                     $LLIBRE[4] = 0;
                                     $LLIBRE[5] = 0;
                                 }else{
-                                    echo "Error, el llibre no es trobava en préstec.";
+                                    echo "<h3><strong>Error</strong>, el llibre amb ISBN <strong>".$_POST['isbn']."</strong> no es troba en préstec.</h3>";
                                 }
                             }
                             $LLIBRESTEMP[] = $LLIBRE;
@@ -65,11 +65,12 @@
                     fclose($FP);
                     if (($CLIENTS = fopen("../../files/clients.csv", "r")) !== FALSE) {
                         while (($USUARIS = fgetcsv($CLIENTS, 1000, ",")) !== FALSE) {
-                                if($USUARIS[8] == $_POST['isbn']){
+                                if($USUARIS[8] == $_POST['isbn'] && !$LNOEXISTEIX){
                                     if($USUARIS[7] == "true"){
                                         $USUARIS[7] = "false";
                                         $USUARIS[8] = 0;
                                         $USUARIS[9] = 0;
+                                        echo "<h3>El usuari <strong>$USUARIS[0]</strong> ha retornat el llibre amb ISBN <strong>".$_POST['isbn']."</strong> correctament.</h3>";
                                     }
                                 }
                                 $USUARISTEMP[] = $USUARIS;
@@ -81,6 +82,9 @@
                         }
                         fclose($FP);
             }
+            if($LNOEXISTEIX){
+                echo "<h3><strong>Error</strong>, el llibre amb ISBN ".$_POST['isbn']." no existeix.</h3>";
+            }  
         }else{
             header("Location: ../../403.php");
         } 

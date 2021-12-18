@@ -43,6 +43,7 @@
         $TODAY = date('d-m-Y');
         $USUARIPRESTEC = false;
         $NOEXISTEIX = true;
+        $LNOEXISTEIX = true;
         if( $_POST["method"] == "PUT" ){
             if (($CLIENTS = fopen("../../files/clients.csv", "r")) !== FALSE) {
                 while (($USUARIS = fgetcsv($CLIENTS, 1000, ",")) !== FALSE) {
@@ -58,8 +59,9 @@
             if (($LLIBRES = fopen("../../files/llibres.csv", "r")) !== FALSE) {
                     while (($LLIBRE = fgetcsv($LLIBRES, 1000, ",")) !== FALSE) {
                             if($LLIBRE[0] == $_POST['isbn']){
+                                $LNOEXISTEIX = false;
                                 if($LLIBRE[3] != "true"){ 
-                                    if(!$USUARIPRESTEC && !$NOEXISTEIX){
+                                    if(!$USUARIPRESTEC && !$NOEXISTEIX && !$LNOEXISTEIX){
                                         $LLIBRE[3] = "true";
                                         $LLIBRE[4] = $TODAY;
                                         $LLIBRE[5] = $_POST['username'];
@@ -78,13 +80,11 @@
                     if (($CLIENTS = fopen("../../files/clients.csv", "r")) !== FALSE) {
                         while (($USUARIS = fgetcsv($CLIENTS, 1000, ",")) !== FALSE) {
                                 if($USUARIS[0] == $_POST['username']){
-                                    if(!$USUARIPRESTEC && !$ISPRESTAT && !$NOEXISTEIX){
+                                    if(!$USUARIPRESTEC && !$ISPRESTAT && !$NOEXISTEIX && !$LNOEXISTEIX){
                                         $USUARIS[7] = "true";
                                         $USUARIS[8] = $_POST['isbn'];
                                         $USUARIS[9] = $TODAY;
-                                    }else{
-                                        echo "$NOEXISTEIX";
-                                        echo "Error, comprova que l'usuari existeixi, que no tingui cap llibre en préstec i/o que el llibre seleccionat no es trobi en préstec";
+                                        echo "<h3>El llibre amb ISBN <strong>".$_POST['isbn']."</strong> ha estat prestat a l'usuari <strong>$USUARIS[0]</strong> correctament.";
                                     }
                                 }
                                 $USUARISTEMP[] = $USUARIS;
@@ -97,6 +97,18 @@
                         fclose($FP);
             }
         }
+        if($USUARIPRESTEC){
+            echo "<h3><strong>Error</strong>, el usuari ".$_POST['username']." ja té un llibre en préstec.</h3>";
+        } 
+        if($NOEXISTEIX){
+            echo "<h3><strong>Error</strong>, el usuari ".$_POST['username']." no existeix.</h3>";
+        }
+        if($ISPRESTAT){
+            echo "<h3><strong>Error</strong>, el llibre amb isbn ".$_POST['isbn']." ja es troba en préstec.</h3>";
+        }  
+        if($LNOEXISTEIX){
+            echo "<h3><strong>Error</strong>, el llibre amb isbn ".$_POST['isbn']." no existeix.</h3>";
+        }  
         }else{
             header("Location: ../../403.php");
         } 
