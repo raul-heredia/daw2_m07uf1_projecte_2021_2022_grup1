@@ -51,9 +51,9 @@
                                             while (($LLIBRE = fgetcsv($LLIBRES, 1000, ",")) !== FALSE) {
                                                 if($LLIBRE[0] == $USUARIS[8]){
                                                     ?>
-                                                    <li><strong>ISBN Llibre en prèstec: </strong><?php echo $LLIBRE[0] ?></li> 
-                                                    <li><strong>Nom del llibre en prèstec: </strong><?php echo $LLIBRE[1] ?></li>
-                                                    <li><strong>Data d'inici prèstec: </strong><?php echo $USUARIS[9] ?></li> 
+                                                    <li><strong>ISBN Llibre en préstec: </strong><?php echo $LLIBRE[0] ?></li> 
+                                                    <li><strong>Nom del llibre en préstec: </strong><?php echo $LLIBRE[1] ?></li>
+                                                    <li><strong>Data d'inici préstec: </strong><?php echo $USUARIS[9] ?></li> 
                                                     <?php
                                                 }
                                             }fclose($LLIBRES);

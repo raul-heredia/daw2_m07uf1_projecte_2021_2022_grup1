@@ -28,7 +28,7 @@ if (isset($_SESSION['administrador'])) {
     </nav>
     <main>
         <h1>Benvingut/da <strong><?php echo $USER?></strong></h1>
-        <h1 class="option-title">Prestecs</h1>
+        <h1 class="option-title">Préstecs</h1>
         <div class="options-flex">
         <a  href="./forms/llibre/prestar.php">
                 <div class="option">

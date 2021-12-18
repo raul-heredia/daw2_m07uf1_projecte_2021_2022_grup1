@@ -42,6 +42,7 @@
         <?php
         $TODAY = date('d-m-Y');
         $USUARIPRESTEC = false;
+        $NOEXISTEIX = false;
 
         if( $_POST["method"] == "PUT" ){
             if (($CLIENTS = fopen("../../files/clients.csv", "r")) !== FALSE) {
@@ -49,6 +50,8 @@
                         if($USUARIS[0] == $_POST['username']){
                             if($USUARIS[7] == "true"){
                                 $USUARIPRESTEC = true;
+                            }else{
+                                $NOEXISTEIX = true;
                             }
                         }
                     }
@@ -56,7 +59,7 @@
             if (($LLIBRES = fopen("../../files/llibres.csv", "r")) !== FALSE) {
                     while (($LLIBRE = fgetcsv($LLIBRES, 1000, ",")) !== FALSE) {
                             if($LLIBRE[0] == $_POST['isbn']){
-                                if($LLIBRE[3] != "true" && !$USUARIPRESTEC){
+                                if($LLIBRE[3] != "true" && !$USUARIPRESTEC && !$NOEXISTEIX){
                                     $LLIBRE[3] = "true";
                                     $LLIBRE[4] = $TODAY;
                                     $LLIBRE[5] = $_POST['username'];
@@ -75,12 +78,12 @@
                     if (($CLIENTS = fopen("../../files/clients.csv", "r")) !== FALSE) {
                         while (($USUARIS = fgetcsv($CLIENTS, 1000, ",")) !== FALSE) {
                                 if($USUARIS[0] == $_POST['username']){
-                                    if(!$USUARIPRESTEC && !$ISPRESTAT){
+                                    if(!$USUARIPRESTEC && !$ISPRESTAT && !$NOEXISTEIX){
                                         $USUARIS[7] = "true";
                                         $USUARIS[8] = $_POST['isbn'];
                                         $USUARIS[9] = $TODAY;
                                     }else{
-                                        echo "Error, El llibre ja es troba en préstec o l'usuari ja té un llibre en préstec";
+                                        echo "Error, comprova que l'usuari existeixi, que no tingui cap llibre en préstec i/o que el llibre seleccionat no es trobi en préstec";
                                     }
                                 }
                                 $USUARISTEMP[] = $USUARIS;

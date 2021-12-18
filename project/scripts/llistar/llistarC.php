@@ -51,7 +51,7 @@
             <th>Correu Electrònic</th>
             <th>Telèfon</th>
             <th>ISBN Llibre en prestec</th>
-            <th>Data d\'inici prèstec</th>
+            <th>Data d\'inici préstec</th>
         </tr>';
 
 if (($CLIENTS = fopen("../../files/clients.csv", "r")) !== FALSE) {

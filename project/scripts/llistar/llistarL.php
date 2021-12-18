@@ -48,8 +48,8 @@
                     <th>ISBN Del Llibre</th>
                     <th>Nom Del Llibre</th>
                     <th>Autor</th>
-                    <th>Data d'Inici del prèstec</th>
-                    <th>Usuari del prèstec</th>
+                    <th>Data d'Inici del préstec</th>
+                    <th>Usuari del préstec</th>
                 </tr>";
         
         if (($LLIBRES = fopen("../../files/llibres.csv", "r")) !== FALSE) {
