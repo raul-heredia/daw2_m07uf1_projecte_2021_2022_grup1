@@ -33,6 +33,9 @@ $estil = '
         text-align: left;
         background-color: #1976d2;
         color: white;
+      }
+      strong{
+        color: #1976d2;
       } 
       </style>
       ';

@@ -46,21 +46,30 @@
            if (($TREBALLADORS = fopen("../../files/bibliotecaris.csv", "r")) !== FALSE) {
             while (($BIBLIOTECARIS = fgetcsv($TREBALLADORS, 1000, ",")) !== FALSE) {
                 if ($USERNAME == $BIBLIOTECARIS[0]){
-                    ?>
-                    <ul>
-                        <li><strong>Nom Complet: </strong><?php echo $USER ?></li>
-                        <li><strong>Direcció: </strong><?php echo $BIBLIOTECARIS[5] ?></li>
-                        <li><strong>Direcció de Correu Electrònic: </strong><?php echo $BIBLIOTECARIS[6] ?></li>
-                        <li><strong>Nª de telèfon: </strong><?php echo $BIBLIOTECARIS[7] ?></li>
-                        <li><strong>Nª Seguretat Social: </strong><?php echo $BIBLIOTECARIS[8] ?></li>  
-                        <li><strong>Data de Contractació: </strong><?php echo $BIBLIOTECARIS[9] ?></li>  
-                        <li><strong>Salari: </strong><?php echo $BIBLIOTECARIS[10] ?></li>                        
+                    
+                    $LLISTA = "<ul>
+                        <li><strong>Nom Complet: </strong>$USER</li>
+                        <li><strong>Direcció: </strong>$BIBLIOTECARIS[5]</li>
+                        <li><strong>Direcció de Correu Electrònic: </strong>$BIBLIOTECARIS[6]</li>
+                        <li><strong>Nª de telèfon: </strong>$BIBLIOTECARIS[7]</li>
+                        <li><strong>Nª Seguretat Social: </strong>$BIBLIOTECARIS[8]</li>  
+                        <li><strong>Data de Contractació: </strong>$BIBLIOTECARIS[9] </li>  
+                        <li><strong>Salari: </strong>$BIBLIOTECARIS[10]€</li></ul>";                   
                       
-                </main>
-                <?php
+               
+                
             }
         }fclose($TREBALLADORS);
-            ?></div></div><?php
+            echo "$LLISTA";
+            $LLISTAPDF = base64_encode(gzcompress($LLISTA,9));
+            echo "<form action='../dompdf/html2pdf.php' method='GET'>
+                    <input type='text' class='hidden' name='filename' value='dades$USERNAME'>
+                    <input type='text' class='hidden' name='file' value='$LLISTAPDF'>
+                    <input type='submit' id='pdf' value='Generar PDF'>
+                </form>";
+            ?>
+            </div></div></main>
+            <?php
     }
 }else{
     header("Location: ../../403.php");
