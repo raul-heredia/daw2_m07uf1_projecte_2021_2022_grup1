@@ -9,7 +9,6 @@
     $TODAY = date('Ymd');
     $PDFNAME = $_GET["filename"]."_".$TODAY;
     $dompdf = new Dompdf();
-    $dompdf->setbasepath(realpath('/var/www/html/css/style.css'));
     $html = $estil.gzuncompress(base64_decode($_GET["file"]));
     $dompdf->setPaper('A3', 'landscape'); 
     $dompdf->loadHtml($html);  
